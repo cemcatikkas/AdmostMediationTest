@@ -1,25 +1,15 @@
 package com.adtesting;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
-
-import com.chartboost.sdk.Chartboost;
-import com.jirbo.adcolony.AdColony;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.vungle.publisher.VunglePub;
 
 import java.util.HashMap;
 
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.AdMostManager;
 import admost.sdk.AdMostView;
-import admost.sdk.AdMostViewBinder;
 import admost.sdk.base.AdMost;
 import admost.sdk.base.AdMostAdNetwork;
 import admost.sdk.base.AdMostConfiguration;
@@ -27,7 +17,7 @@ import admost.sdk.base.AdMostLog;
 import admost.sdk.listener.AdMostAdListener;
 import admost.sdk.listener.AdMostViewListener;
 
-public class MainActivity extends Activity {
+public class SecondActivity extends Activity {
 
     final String fullscreenZone = "b6fd7c7b-c6bd-42d2-b8f0-7f358ea02554";
     final String video = "e270e78b-20f4-4782-9a81-73b2e2346ec0";
@@ -41,15 +31,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        HashMap map = new HashMap();
-        map.put(AdMostAdNetwork.INMOBI, "4028cb8b2dbd0408012deb1bdda50431");
-        map.put(AdMostAdNetwork.FLURRY, "CH2PCJMWFS2VHBXD757P");
-
-        AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(this);
-        configuration.initIds(map);
-
-        AdMostLog.setLogEnabled(true);
-        AdMost.getInstance().init(configuration.build());
+        findViewById(R.id.otherPage).setVisibility(View.GONE);
 
         ad = new AdMostView(this, bannerZone, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
             @Override
@@ -80,7 +62,7 @@ public class MainActivity extends Activity {
                     }
                 };
 
-                interstitial = new AdMostInterstitial(MainActivity.this, fullscreenZone, listener);
+                interstitial = new AdMostInterstitial(SecondActivity.this, fullscreenZone, listener);
                 interstitial.refreshAd(true);
             }
         });
@@ -93,7 +75,7 @@ public class MainActivity extends Activity {
                 if (ad != null) {
                     ad.destroy();
                 }
-                ad = new AdMostView(MainActivity.this, bannerZone, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
+                ad = new AdMostView(SecondActivity.this, bannerZone, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
                     @Override
                     public void onLoad(String network, int position) {
                         LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
@@ -104,33 +86,24 @@ public class MainActivity extends Activity {
                 ad.getView();
             }
         });
-
-
-        findViewById(R.id.otherPage).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        AdMost.getInstance().onActivityResume(MainActivity.this);
+        AdMost.getInstance().onActivityResume(SecondActivity.this);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        AdMost.getInstance().onActivityPause(MainActivity.this);
+        AdMost.getInstance().onActivityPause(SecondActivity.this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        AdMost.getInstance().onActivityDestroy(MainActivity.this);
+        AdMost.getInstance().onActivityDestroy(SecondActivity.this);
 
     }
 }

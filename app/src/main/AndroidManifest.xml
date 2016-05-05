@@ -27,7 +27,22 @@
             </intent-filter>
         </activity>
 
-        <service android:name="admost.sdk.AdMostImpressionService" />
+        <activity
+            android:name="com.adtesting.SecondActivity"
+            android:configChanges="orientation|screenSize|keyboard" />
+
+        <!-- Do not send impressions to db -->
+        <!--<service android:name="admost.sdk.AdMostImpressionService" />-->
+
+        <activity
+            android:name="com.mediabrix.android.service.AdViewActivity"
+            android:configChanges="orientation|screenSize|keyboard"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+
+        <service
+            android:name="com.mediabrix.android.service.MediaBrixService" >
+        </service>
 
         <!-- AMAZON -->
         <activity
