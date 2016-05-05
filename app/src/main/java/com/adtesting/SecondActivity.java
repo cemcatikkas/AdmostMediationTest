@@ -2,8 +2,10 @@ package com.adtesting;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.test.suitebuilder.TestMethod;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.HashMap;
 
@@ -39,6 +41,7 @@ public class SecondActivity extends Activity {
                 LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
                 viewAd.removeAllViews();
                 viewAd.addView(ad.getView());
+                ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
             }
         }, null);
         ad.getView();
@@ -75,12 +78,14 @@ public class SecondActivity extends Activity {
                 if (ad != null) {
                     ad.destroy();
                 }
+                ((TextView)findViewById(R.id.loadedNetwork)).setText("");
                 ad = new AdMostView(SecondActivity.this, bannerZone, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
                     @Override
                     public void onLoad(String network, int position) {
                         LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
                         viewAd.removeAllViews();
                         viewAd.addView(ad.getView());
+                        ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
                     }
                 }, null);
                 ad.getView();
@@ -104,6 +109,9 @@ public class SecondActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         AdMost.getInstance().onActivityDestroy(SecondActivity.this);
+        if (interstitial != null) {
+            interstitial.destroy();
+        }
 
     }
 }

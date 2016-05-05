@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.chartboost.sdk.Chartboost;
 import com.jirbo.adcolony.AdColony;
@@ -57,6 +58,7 @@ public class MainActivity extends Activity {
                 LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
                 viewAd.removeAllViews();
                 viewAd.addView(ad.getView());
+                ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
             }
         }, null);
         ad.getView();
@@ -93,12 +95,14 @@ public class MainActivity extends Activity {
                 if (ad != null) {
                     ad.destroy();
                 }
+                ((TextView)findViewById(R.id.loadedNetwork)).setText("");
                 ad = new AdMostView(MainActivity.this, bannerZone, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
                     @Override
                     public void onLoad(String network, int position) {
                         LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
                         viewAd.removeAllViews();
                         viewAd.addView(ad.getView());
+                        ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
                     }
                 }, null);
                 ad.getView();
@@ -131,6 +135,9 @@ public class MainActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         AdMost.getInstance().onActivityDestroy(MainActivity.this);
+        if (interstitial != null) {
+            interstitial.destroy();
+        }
 
     }
 }
