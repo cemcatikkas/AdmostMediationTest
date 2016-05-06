@@ -34,6 +34,7 @@
         <!-- Do not send impressions to db -->
         <!--<service android:name="admost.sdk.AdMostImpressionService" />-->
 
+        <!-- MEDIABRIX -->
         <activity
             android:name="com.mediabrix.android.service.AdViewActivity"
             android:configChanges="orientation|screenSize|keyboard"
