@@ -7,20 +7,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.chartboost.sdk.Chartboost;
-import com.jirbo.adcolony.AdColony;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.vungle.publisher.VunglePub;
-
-import java.util.HashMap;
-
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.AdMostManager;
 import admost.sdk.AdMostView;
-import admost.sdk.AdMostViewBinder;
 import admost.sdk.base.AdMost;
 import admost.sdk.base.AdMostAdNetwork;
 import admost.sdk.base.AdMostConfiguration;
@@ -30,9 +19,12 @@ import admost.sdk.listener.AdMostViewListener;
 
 public class MainActivity extends Activity {
 
-    final String fullscreenZone = "b6fd7c7b-c6bd-42d2-b8f0-7f358ea02554";
-    final String video = "e270e78b-20f4-4782-9a81-73b2e2346ec0";
-    final String bannerZone = "a261abd8-04c1-4987-981e-1bc9acd8d77d";
+    final String FULLSCREEN_ZONE = "f99e409b-f9ab-4a2e-aa9a-4d143e6809ae";
+    final String VIDEO_ZONE = "e270e78b-20f4-4782-9a81-73b2e2346ec0";
+    final String BANNER_ZONE = "86644357-21d0-45a4-906a-37262461df65";
+
+    final String INMOBI_ACCOUNT_ID = "4028cb8b2dbd0408012deb1bdda50431";
+    final String FLURRY_API_KEY = "76DBB28TZHFF4GZ5TJ6Y";
 
     AdMostView ad;
     AdMostInterstitial interstitial;
@@ -42,17 +34,22 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        HashMap map = new HashMap();
-        map.put(AdMostAdNetwork.INMOBI, "4028cb8b2dbd0408012deb1bdda50431");
-        map.put(AdMostAdNetwork.FLURRY, "CH2PCJMWFS2VHBXD757P");
-
         AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(this);
-        configuration.initIds(map);
+
+        /*
+        configuration.initIds(AdMostAdNetwork.NATIVEX, NATIVEX_APP_ID);
+        configuration.initIds(AdMostAdNetwork.CHARTBOOST, CHARTBOOST_ID, CHARTBOOST_SIGNATURE);
+        configuration.initIds(AdMostAdNetwork.VUNGLE, VUNGLE_ID);
+        configuration.initIds(AdMostAdNetwork.ADCOLONY, ADCOLONY_ID, ADCOLONY_REWARDED, ADCOLONY_INTERSTITIAL);
+*/
+
+        configuration.initIds(AdMostAdNetwork.INMOBI, INMOBI_ACCOUNT_ID);
+        configuration.initIds(AdMostAdNetwork.FLURRY, FLURRY_API_KEY);
 
         AdMostLog.setLogEnabled(true);
         AdMost.getInstance().init(configuration.build());
 
-        ad = new AdMostView(this, bannerZone, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
+        ad = new AdMostView(this, BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
             @Override
             public void onLoad(String network, int position) {
                 LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
@@ -82,7 +79,7 @@ public class MainActivity extends Activity {
                     }
                 };
 
-                interstitial = new AdMostInterstitial(MainActivity.this, fullscreenZone, listener);
+                interstitial = new AdMostInterstitial(MainActivity.this, FULLSCREEN_ZONE, listener);
                 interstitial.refreshAd(true);
             }
         });
@@ -96,7 +93,7 @@ public class MainActivity extends Activity {
                     ad.destroy();
                 }
                 ((TextView)findViewById(R.id.loadedNetwork)).setText("");
-                ad = new AdMostView(MainActivity.this, bannerZone, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
+                ad = new AdMostView(MainActivity.this, BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
                     @Override
                     public void onLoad(String network, int position) {
                         LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
@@ -120,24 +117,36 @@ public class MainActivity extends Activity {
     }
 
     @Override
-    protected void onResume() {
+    public void onStart() {
+        super.onStart();
+        AdMost.getInstance().onStart(this);
+    }
+
+    @Override
+    public void onResume() {
         super.onResume();
-        AdMost.getInstance().onActivityResume(MainActivity.this);
+        AdMost.getInstance().onResume(this);
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
-        AdMost.getInstance().onActivityPause(MainActivity.this);
+        AdMost.getInstance().onPause(this);
     }
 
     @Override
-    protected void onDestroy() {
+    public void onStop() {
+        super.onStop();
+        AdMost.getInstance().onStop(this);
+    }
+
+    @Override
+    public void onDestroy() {
         super.onDestroy();
-        AdMost.getInstance().onActivityDestroy(MainActivity.this);
+        AdMost.getInstance().onDestroy(this);
+
         if (interstitial != null) {
             interstitial.destroy();
         }
-
     }
 }

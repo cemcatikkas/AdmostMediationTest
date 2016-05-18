@@ -95,7 +95,7 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer/r1.5.6/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/8.4.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.4.0/jars" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mopub/mopub-sdk/4.5.1/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.mopub/mopub-sdk/4.6.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/net.pubnative/advertising_id_client/1.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/net.pubnative/library/2.0.1/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/net.pubnative/url_driller/1.1.0/jars" />
@@ -116,11 +116,12 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 23 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="mopub-sdk-4.5.1" level="project" />
+    <orderEntry type="library" exported="" name="mopub-sdk-4.6.1" level="project" />
     <orderEntry type="library" exported="" name="audience-network-sdk-4.11.0" level="project" />
     <orderEntry type="library" exported="" name="nineoldandroids-2.4.0" level="project" />
     <orderEntry type="library" exported="" name="loopme-sdk-4.7.1" level="project" />
     <orderEntry type="library" exported="" name="inmobi-ads-5.3.0" level="project" />
+    <orderEntry type="library" exported="" name="applovin-sdk-6.1.5" level="project" />
     <orderEntry type="library" exported="" name="AdFalconAndroidSDK3.1.0" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.1.1" level="project" />
     <orderEntry type="library" exported="" name="chartboost" level="project" />
@@ -133,10 +134,12 @@
     <orderEntry type="library" exported="" name="play-services-ads-8.4.0" level="project" />
     <orderEntry type="library" exported="" name="adcolony" level="project" />
     <orderEntry type="library" exported="" name="mopub-volley-1.1.0" level="project" />
+    <orderEntry type="library" exported="" name="NativeXMonetizationSDK_v5.5.6.1" level="project" />
     <orderEntry type="library" exported="" name="dagger-1.2.2" level="project" />
     <orderEntry type="library" exported="" name="analytics-6.2.0" level="project" />
     <orderEntry type="library" exported="" name="gson-2.3" level="project" />
     <orderEntry type="library" exported="" name="advertising_id_client-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="mediationsdk-6.4.4" level="project" />
     <orderEntry type="library" exported="" name="vungle-publisher-adaptive-id-3.3.4" level="project" />
     <orderEntry type="library" exported="" name="javax.inject-1" level="project" />
     <orderEntry type="library" exported="" name="universal-image-loader-1.9.5" level="project" />

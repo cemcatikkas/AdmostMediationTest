@@ -21,9 +21,10 @@ import admost.sdk.listener.AdMostViewListener;
 
 public class SecondActivity extends Activity {
 
-    final String fullscreenZone = "b6fd7c7b-c6bd-42d2-b8f0-7f358ea02554";
-    final String video = "e270e78b-20f4-4782-9a81-73b2e2346ec0";
-    final String bannerZone = "a261abd8-04c1-4987-981e-1bc9acd8d77d";
+    final String FULLSCREEN_ZONE = "f99e409b-f9ab-4a2e-aa9a-4d143e6809ae";
+    final String VIDEO_ZONE = "e270e78b-20f4-4782-9a81-73b2e2346ec0";
+    final String BANNER_ZONE = "86644357-21d0-45a4-906a-37262461df65";
+
 
     AdMostView ad;
     AdMostInterstitial interstitial;
@@ -35,7 +36,7 @@ public class SecondActivity extends Activity {
 
         findViewById(R.id.otherPage).setVisibility(View.GONE);
 
-        ad = new AdMostView(this, bannerZone, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
+        ad = new AdMostView(this, BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
             @Override
             public void onLoad(String network, int position) {
                 LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
@@ -65,7 +66,7 @@ public class SecondActivity extends Activity {
                     }
                 };
 
-                interstitial = new AdMostInterstitial(SecondActivity.this, fullscreenZone, listener);
+                interstitial = new AdMostInterstitial(SecondActivity.this, FULLSCREEN_ZONE, listener);
                 interstitial.refreshAd(true);
             }
         });
@@ -79,7 +80,7 @@ public class SecondActivity extends Activity {
                     ad.destroy();
                 }
                 ((TextView)findViewById(R.id.loadedNetwork)).setText("");
-                ad = new AdMostView(SecondActivity.this, bannerZone, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
+                ad = new AdMostView(SecondActivity.this, BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
                     @Override
                     public void onLoad(String network, int position) {
                         LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
@@ -94,24 +95,36 @@ public class SecondActivity extends Activity {
     }
 
     @Override
-    protected void onResume() {
+    public void onStart() {
+        super.onStart();
+        AdMost.getInstance().onStart(this);
+    }
+
+    @Override
+    public void onResume() {
         super.onResume();
-        AdMost.getInstance().onActivityResume(SecondActivity.this);
+        AdMost.getInstance().onResume(this);
     }
 
     @Override
-    protected void onPause() {
+    public void onPause() {
         super.onPause();
-        AdMost.getInstance().onActivityPause(SecondActivity.this);
+        AdMost.getInstance().onPause(this);
     }
 
     @Override
-    protected void onDestroy() {
+    public void onStop() {
+        super.onStop();
+        AdMost.getInstance().onStop(this);
+    }
+
+    @Override
+    public void onDestroy() {
         super.onDestroy();
-        AdMost.getInstance().onActivityDestroy(SecondActivity.this);
+        AdMost.getInstance().onDestroy(this);
+
         if (interstitial != null) {
             interstitial.destroy();
         }
-
     }
 }

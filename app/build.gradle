@@ -29,6 +29,8 @@ repositories {
     flatDir {
         dirs 'libs'
     }
+    maven { url "https://jitpack.io" }
+    maven { url "https://dl.bintray.com/supersonic/android-sdk" }
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -43,6 +45,8 @@ dependencies {
     compile 'com.flurry.android:analytics:6.2.0'
     compile 'com.flurry.android:ads:6.2.0'
     compile 'com.inmobi.monetization:inmobi-ads:5.3.0'
-    compile('com.mopub:mopub-sdk:4.5.1@aar') { transitive = true }
+    compile('com.mopub:mopub-sdk:4.6.1@aar') { transitive = true }// MOPUB
+    compile 'com.supersonic.sdk:mediationsdk:6.4.4@jar'// SUPERSONIC
+
 
 }
