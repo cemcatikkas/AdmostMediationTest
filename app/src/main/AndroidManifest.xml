@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.adtesting">
+    package="com.masomo.drawpath">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -13,13 +13,13 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name="com.adtesting.ApplicationStart"
+        android:name="com.drawpath.ApplicationStart"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.adtesting.MainActivity">
+        <activity android:name="com.drawpath.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +28,7 @@
         </activity>
 
         <activity
-            android:name="com.adtesting.SecondActivity"
+            android:name="com.drawpath.SecondActivity"
             android:configChanges="orientation|screenSize|keyboard" />
 
         <!-- Do not send impressions to db -->
@@ -145,6 +145,9 @@
             android:configChanges="keyboard|keyboardHidden|orientation|uiMode|screenLayout|screenSize|smallestScreenSize"
             android:hardwareAccelerated="true"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data android:name="applovin.sdk.key"
+                   android:value="LN_kr2mUpK0zI5JgqhgM2IW5FkVtb0pxOpeDsPifkic1owhcbM-efUlwDEnpFZkdNNrDnTtVFUW2ODe_ZceD6N"  />
 
     </application>
 

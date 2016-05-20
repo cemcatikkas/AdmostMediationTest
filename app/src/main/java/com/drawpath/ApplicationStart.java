@@ -1,4 +1,4 @@
-package com.adtesting;
+package com.drawpath;
 
 import android.content.Context;
 import android.support.multidex.MultiDex;

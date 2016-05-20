@@ -1,30 +1,22 @@
-package com.adtesting;
+package com.drawpath;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.test.suitebuilder.TestMethod;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.HashMap;
+import com.masomo.drawpath.R;
 
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.AdMostManager;
 import admost.sdk.AdMostView;
 import admost.sdk.base.AdMost;
-import admost.sdk.base.AdMostAdNetwork;
-import admost.sdk.base.AdMostConfiguration;
 import admost.sdk.base.AdMostLog;
 import admost.sdk.listener.AdMostAdListener;
 import admost.sdk.listener.AdMostViewListener;
 
 public class SecondActivity extends Activity {
-
-    final String FULLSCREEN_ZONE = "f99e409b-f9ab-4a2e-aa9a-4d143e6809ae";
-    final String VIDEO_ZONE = "e270e78b-20f4-4782-9a81-73b2e2346ec0";
-    final String BANNER_ZONE = "86644357-21d0-45a4-906a-37262461df65";
-
 
     AdMostView ad;
     AdMostInterstitial interstitial;
@@ -36,7 +28,7 @@ public class SecondActivity extends Activity {
 
         findViewById(R.id.otherPage).setVisibility(View.GONE);
 
-        ad = new AdMostView(this, BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
+        ad = new AdMostView(this, Statics.BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
             @Override
             public void onLoad(String network, int position) {
                 LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
@@ -66,7 +58,7 @@ public class SecondActivity extends Activity {
                     }
                 };
 
-                interstitial = new AdMostInterstitial(SecondActivity.this, FULLSCREEN_ZONE, listener);
+                interstitial = new AdMostInterstitial(SecondActivity.this, Statics.FULLSCREEN_ZONE, listener);
                 interstitial.refreshAd(true);
             }
         });
@@ -80,7 +72,7 @@ public class SecondActivity extends Activity {
                     ad.destroy();
                 }
                 ((TextView)findViewById(R.id.loadedNetwork)).setText("");
-                ad = new AdMostView(SecondActivity.this, BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
+                ad = new AdMostView(SecondActivity.this, Statics.BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
                     @Override
                     public void onLoad(String network, int position) {
                         LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);

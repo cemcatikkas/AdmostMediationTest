@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.adtesting.MainActivity">
+    tools:context="com.drawpath.MainActivity">
 
     <TextView
         android:id="@+id/loadedNetwork"
@@ -41,6 +41,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Show Interstitial"/>
+
+        <Button
+            android:id="@+id/showVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show Video"/>
 
         <Button
             android:id="@+id/otherPage"
