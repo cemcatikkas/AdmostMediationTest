@@ -12,6 +12,7 @@ import com.masomo.drawpath.R;
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.AdMostManager;
 import admost.sdk.AdMostView;
+import admost.sdk.AdMostViewBinder;
 import admost.sdk.base.AdMost;
 import admost.sdk.base.AdMostAdNetwork;
 import admost.sdk.base.AdMostConfiguration;
@@ -33,9 +34,7 @@ public class MainActivity extends Activity {
 
         /*
         configuration.initIds(AdMostAdNetwork.NATIVEX, NATIVEX_APP_ID);
-        configuration.initIds(AdMostAdNetwork.ADCOLONY, ADCOLONY_ID, ADCOLONY_REWARDED, ADCOLONY_INTERSTITIAL);
-        APPLOVIN lazım
-*/
+        */
 
         configuration.initIds(AdMostAdNetwork.ADCOLONY, Statics.ADCOLONY_ID, Statics.ADCOLONY_REWARDED);
         configuration.initIds(AdMostAdNetwork.VUNGLE, Statics.VUNGLE_ID);
@@ -137,6 +136,48 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+
+
+
+
+        int TYPE = AdMostManager.getInstance().AD_BANNER;
+// AD_LEADERBOARD for 90dp height, AD_MEDIUM_RECTANGLE for big banners (height : 250dp)
+
+// You can use the following layouts by default, or define other layouts for your own designs
+        int layout = admost.sdk.R.layout.admost_native;
+
+            layout = admost.sdk.R.layout.admost_native_50;
+
+        AdMostLog.setLogEnabled(true);
+        AdMostViewBinder binder = new AdMostViewBinder.Builder(layout)
+                .titleId(admost.sdk.R.id.ad_headline)
+                .textId(admost.sdk.R.id.ad_body)
+                .callToActionId(admost.sdk.R.id.ad_call_to_action)
+                .iconImageId(admost.sdk.R.id.ad_app_icon)
+                .mainImageId(admost.sdk.R.id.ad_image)
+                .backImageId(admost.sdk.R.id.ad_back)
+                .attributionId(admost.sdk.R.id.ad_attribution)
+                .isFixed(false)
+                .isCloseable(false)//(type & AD_CLOSEABLE) != 0
+                .build();
+
+// ZONE_ID : Your ZONE_ID defined on admost mediation panels.
+        AdMostView ADMOST_MEDIATION_VIEW = new AdMostView(this, "", TYPE,  new AdMostViewListener() {
+            @Override
+            public void onLoad(String network, int position) {
+                if (network.equals(AdMostAdNetwork.NO_NETWORK)) {
+                    // No Banner Found
+                } else {
+                    // Ad Loaded, You can get ad view by calling ADMOST_MEDIATION_VIEW.getView(postion)
+                    // Calling ADMOST_MEDIATION_VIEW.getView method multiple times will not cause any side effect.
+                }
+            }
+        }, binder);
+
+// Add the following line to get an ad from the admost mediation system.
+        ADMOST_MEDIATION_VIEW.getView(0);
+
     }
 
     @Override
