@@ -1,4 +1,4 @@
-package com.drawpath;
+package com.amrtest;
 
 public class Statics {
     public final static String FULLSCREEN_ZONE = "f99e409b-f9ab-4a2e-aa9a-4d143e6809ae";
@@ -12,4 +12,5 @@ public class Statics {
     public final static String VUNGLE_ID = "573c87d669d550c903000040";
     public final static String ADCOLONY_ID = "appf7c789d0c7de4790b8";
     public final static String ADCOLONY_REWARDED = "vz81f6748c5e5a40ab89";
+    public final static String NATIVEX_APP_ID = "test";
 }

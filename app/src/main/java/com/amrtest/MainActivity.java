@@ -1,4 +1,4 @@
-package com.drawpath;
+package com.amrtest;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.masomo.drawpath.R;
+import com.kokteyl.amrtest.R;
 
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.AdMostManager;
@@ -41,6 +41,7 @@ public class MainActivity extends Activity {
         configuration.initIds(AdMostAdNetwork.CHARTBOOST, Statics.CHARTBOOST_ID, Statics.CHARTBOOST_SIGNATURE);
         configuration.initIds(AdMostAdNetwork.INMOBI, Statics.INMOBI_ACCOUNT_ID);
         configuration.initIds(AdMostAdNetwork.FLURRY, Statics.FLURRY_API_KEY);
+        configuration.initIds(AdMostAdNetwork.NATIVEX, Statics.NATIVEX_APP_ID);
 
         AdMostLog.setLogEnabled(true);
         AdMost.getInstance().init(configuration.build());

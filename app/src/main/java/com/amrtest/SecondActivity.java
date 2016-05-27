@@ -1,4 +1,4 @@
-package com.drawpath;
+package com.amrtest;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.masomo.drawpath.R;
+import com.kokteyl.amrtest.R;
 
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.AdMostManager;
