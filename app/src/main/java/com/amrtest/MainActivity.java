@@ -1,13 +1,18 @@
 package com.amrtest;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.kokteyl.amrtest.R;
+import com.millennialmedia.AppInfo;
+import com.millennialmedia.MMSDK;
 
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.AdMostManager;
@@ -24,17 +29,24 @@ public class MainActivity extends Activity {
 
     AdMostView ad;
     AdMostInterstitial interstitial;
+    AdMostInterstitial video;
+    SharedPreferences.Editor editor;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(this);
+        findViewById(R.id.customPageButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CustomTestActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        /*
-        configuration.initIds(AdMostAdNetwork.NATIVEX, NATIVEX_APP_ID);
-        */
+        AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(this);
 
         configuration.initIds(AdMostAdNetwork.ADCOLONY, Statics.ADCOLONY_ID, Statics.ADCOLONY_REWARDED);
         configuration.initIds(AdMostAdNetwork.VUNGLE, Statics.VUNGLE_ID);
@@ -42,6 +54,8 @@ public class MainActivity extends Activity {
         configuration.initIds(AdMostAdNetwork.INMOBI, Statics.INMOBI_ACCOUNT_ID);
         configuration.initIds(AdMostAdNetwork.FLURRY, Statics.FLURRY_API_KEY);
         configuration.initIds(AdMostAdNetwork.NATIVEX, Statics.NATIVEX_APP_ID);
+        configuration.initIds(AdMostAdNetwork.UNITY, Statics.UNITY_ID);
+        configuration.initIds(AdMostAdNetwork.NEXTAGE, Statics.NEXT_AGE_SITE_ID);
 
         AdMostLog.setLogEnabled(true);
         AdMost.getInstance().init(configuration.build());
@@ -56,6 +70,9 @@ public class MainActivity extends Activity {
             }
         }, null);
         ad.getView();
+
+        preferences = getSharedPreferences("AMR_SP", Context.MODE_WORLD_READABLE);
+        editor = preferences.edit();
 
         findViewById(R.id.showInterstitial).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,8 +142,8 @@ public class MainActivity extends Activity {
                     }
                 };
 
-                interstitial = new AdMostInterstitial(MainActivity.this, Statics.VIDEO_ZONE, listener);
-                interstitial.refreshAd(true);
+                video = new AdMostInterstitial(MainActivity.this, Statics.VIDEO_ZONE, listener);
+                video.refreshAd(true);
             }
         });
 
@@ -138,46 +155,28 @@ public class MainActivity extends Activity {
             }
         });
 
-
-
-
-
-        int TYPE = AdMostManager.getInstance().AD_BANNER;
-// AD_LEADERBOARD for 90dp height, AD_MEDIUM_RECTANGLE for big banners (height : 250dp)
-
-// You can use the following layouts by default, or define other layouts for your own designs
-        int layout = admost.sdk.R.layout.admost_native;
-
-            layout = admost.sdk.R.layout.admost_native_50;
-
-        AdMostLog.setLogEnabled(true);
-        AdMostViewBinder binder = new AdMostViewBinder.Builder(layout)
-                .titleId(admost.sdk.R.id.ad_headline)
-                .textId(admost.sdk.R.id.ad_body)
-                .callToActionId(admost.sdk.R.id.ad_call_to_action)
-                .iconImageId(admost.sdk.R.id.ad_app_icon)
-                .mainImageId(admost.sdk.R.id.ad_image)
-                .backImageId(admost.sdk.R.id.ad_back)
-                .attributionId(admost.sdk.R.id.ad_attribution)
-                .isFixed(false)
-                .isCloseable(false)//(type & AD_CLOSEABLE) != 0
-                .build();
-
-// ZONE_ID : Your ZONE_ID defined on admost mediation panels.
-        AdMostView ADMOST_MEDIATION_VIEW = new AdMostView(this, "", TYPE,  new AdMostViewListener() {
+        findViewById(R.id.customPageButton).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onLoad(String network, int position) {
-                if (network.equals(AdMostAdNetwork.NO_NETWORK)) {
-                    // No Banner Found
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CustomTestActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.switchDebugMode).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (preferences.getString("AMR_DEBUG_MODE","CLOSED").equals("OPEN")) {
+                    editor.putString("AMR_DEBUG_MODE","CLOSED");
+                    editor.apply();
+                    Toast.makeText(getApplicationContext(),"Debug mode closed", Toast.LENGTH_SHORT).show();
                 } else {
-                    // Ad Loaded, You can get ad view by calling ADMOST_MEDIATION_VIEW.getView(postion)
-                    // Calling ADMOST_MEDIATION_VIEW.getView method multiple times will not cause any side effect.
+                    editor.putString("AMR_DEBUG_MODE","OPEN");
+                    editor.apply();
+                    Toast.makeText(getApplicationContext(),"Debug mode open", Toast.LENGTH_SHORT).show();
                 }
             }
-        }, binder);
-
-// Add the following line to get an ad from the admost mediation system.
-        ADMOST_MEDIATION_VIEW.getView(0);
+        });
 
     }
 
@@ -212,6 +211,9 @@ public class MainActivity extends Activity {
 
         if (interstitial != null) {
             interstitial.destroy();
+        }
+        if (video != null) {
+            video.destroy();
         }
     }
 }

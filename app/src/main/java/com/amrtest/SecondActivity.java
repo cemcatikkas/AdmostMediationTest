@@ -84,6 +84,8 @@ public class SecondActivity extends Activity {
                 ad.getView();
             }
         });
+
+        findViewById(R.id.showVideo).setVisibility(View.GONE);
     }
 
     @Override
