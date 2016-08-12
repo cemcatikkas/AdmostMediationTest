@@ -29,6 +29,8 @@ public class SecondActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.otherPage).setVisibility(View.GONE);
+        findViewById(R.id.customPageButton).setVisibility(View.GONE);
+        findViewById(R.id.switchDebugMode).setVisibility(View.GONE);
 
         ad = new AdMostView(this, Statics.BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
             @Override
