@@ -66,42 +66,92 @@
 
 -keep class com.kokteyl.ApplicationStart { *; }
 
-# COMSCORE
--keep class com.comscore.** { *; }
--dontwarn com.comscore.**
 
-# GEMIUSSDK
--dontwarn com.gemius.**
--keep class com.gemius.** { *; }
--keepclassmembers class com.gemius.** { *; }
-
-# CRASHLYTICS
--keepattributes *Annotation*
--keep class com.crashlytics.** { *; }
--dontwarn com.crashlytics.**
-
-#|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ADMOST-AD-SDK
-
-# GOOGLE
--keep class com.android.vending.billing.**
--keep public class com.google.android.gms.ads.** { public *; }
- -keep public class com.google.ads.** { public *; }
--keep class com.google.android.gms.** { *; }
- -dontwarn com.google.android.gms.**
--keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable { public static final *** NULL; }
--keepnames class * implements android.os.Parcelable
--keepclassmembers class * implements android.os.Parcelable { public static final *** CREATOR; }
--keep @interface android.support.annotation.Keep
--keep @android.support.annotation.Keep class *
--keepclasseswithmembers class * { @android.support.annotation.Keep <fields>; }
--keepclasseswithmembers class * { @android.support.annotation.Keep <methods>; }
--keep @interface com.google.android.gms.common.annotation.KeepName
+# TAPJOY ###########################################################################################
+-keep class com.tapjoy.** {*;}
+-keepattributes JavascriptInterface
+-keep class * extends java.util.ListResourceBundle {protected Object[][] getContents();}
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {public static final *** NULL;}
 -keepnames @com.google.android.gms.common.annotation.KeepName class *
--keepclassmembernames class * { @com.google.android.gms.common.annotation.KeepName *; }
--keep @interface com.google.android.gms.common.util.DynamiteApi
--keep public @com.google.android.gms.common.util.DynamiteApi class * { public <fields>; public <methods>; }
--dontwarn android.security.NetworkSecurityPolicy
--keep public @com.google.android.gms.common.util.DynamiteApi class * { *; }
+-keepclassmembernames class * {@com.google.android.gms.common.annotation.KeepName *;}
+-keepnames class * implements android.os.Parcelable {public static final ** CREATOR;}
+-keep class com.google.android.gms.ads.identifier.** {*;}
+-dontwarn com.tapjoy.**
+####################################################################################################
+-dontwarn com.google.common.**
+-keep class com.google.common.** { public *; }
+-keep class com.google.android.gms.common.api.GoogleApiClient { public *; }
+-keep class com.google.android.gms.common.api.GoogleApiClient$* {public *;}
+-keep class com.google.android.gms.location.LocationServices {public *;}
+-keep class com.google.android.gms.location.FusedLocationProviderApi {public *;}
+-keep class com.google.android.gms.location.ActivityRecognition {public *;}
+-keep class com.google.android.gms.location.ActivityRecognitionApi {public *;}
+-keep class com.google.android.gms.location.ActivityRecognitionResult {public *;}
+-keep class com.google.android.gms.location.DetectedActivity {public *;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient{public *;}
+-keep class com.google.android.gms.ads.identifier.AdvertisingIdClient$Info{public *;}
+####################################################################################################
+
+# ADCOLONY #########################################################################################
+-optimizationpasses 5
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
+-keepclasseswithmembernames class * {native <methods>;}
+-keepclasseswithmembers class * {public <init>(android.content.Context, android.util.AttributeSet);}
+-keepclasseswithmembers class * {public <init>(android.content.Context, android.util.AttributeSet, int);}
+-keepclassmembers class * extends android.app.Activity {public void *(android.view.View);}
+-keepclassmembers enum * {public static **[] values();public static ** valueOf(java.lang.String);}
+-keep class * implements android.os.Parcelable {public static final android.os.Parcelable$Creator *;}
+
+-dontwarn android.webkit.**
+-dontwarn com.immersion.**
+-dontnote com.immersion.**
+
+####################################################################################################
+
+-keepattributes *Annotation*,EnclosingMethod,Signature
+-keepclasseswithmembers class * {public <init>(android.content.Context, android.util.AttributeSet, int);}
+# Google Play Services library
+-keep class * extends java.util.ListResourceBundle {protected Object[][] getContents();}
+-keep public class com.google.android.gms.common.internal.safeparcel.SafeParcelable {public static final *** NULL;}
+-keepnames @com.google.android.gms.common.annotation.KeepName class *
+-keepclassmembernames class * {@com.google.android.gms.common.annotation.KeepName *;}
+-keepnames class * implements android.os.Parcelable {public static final ** CREATOR;}
+#If you are using the Google Mobile Ads SDK, add the following:
+# Preserve GMS ads classes
+-keep class com.google.android.gms.ads.** {*;}
+-dontwarn com.google.android.gms.ads.**
+#If you are using the Millennial Media SDK, add the following:
+# Preserve Millennial Ads classes
+-keep class com.millennialmedia.** {*;}
+-dontwarn com.millennialmedia.**
+####################################################################################################
+
+# koushikdutta WEBSOCKET ###########################################################################
+-keep class * extends com.koushikdutta.async.TapCallback {
+  public protected private *;
+}
+####################################################################################################
+
+-keep class com.google.android.gms.** { *; }
+-dontwarn com.google.android.gms.**
+
+# APPSEE ###########################################################################################
+-keep class com.appsee.** { *; }
+-dontwarn com.appsee.**
+
+-keep class wordsearch.ApplicationStart { *; }
 
 # ADMOST
 -keep class admost.sdk.** { *; }
@@ -127,6 +177,7 @@
 -keep class com.flurry.** { *; }
 -dontwarn com.flurry.**
 # MOPUB
+-dontwarn com.mopub.**
 -keepclassmembers class com.mopub.** { public *; }
 -keep public class com.mopub.**
 -keep public class android.webkit.JavascriptInterface {}
@@ -170,12 +221,22 @@
 # APPLOVIN
 -dontwarn com.applovin.**
 -keep class com.applovin.** { *; }
+# UNIVERSAL IMAGE LOADER
+-keep class com.nostra13.universalimageloader.core.* { *; }
+# MEDIABRIX
+-dontwarn com.mediabrix.**
+-keep class com.mediabrix.** { *; }
+-dontwarn com.moat.analytics.**
+-keep class com.moat.analytics.** { *; }
+
 # FLYMOB
 -dontwarn com.flymob.sdk.**
--keep public class com.flymob.sdk.common.** { public *; }
+-keep class com.flymob.sdk.common.** { *; }
+
 # UNITY
 -dontwarn com.unity3d.**
 -keep class com.unity3d.ads.android.** { *; }
+
 # VOLLEY
 -keep class com.android.volley.** { *; }
 -keep interface com.android.volley.** { *; }
@@ -189,3 +250,28 @@ public *;
 # REVMOB
 -dontwarn com.revmob.**
 -keep class com.revmob.** { public *; }
+# SMAATO
+-dontwarn com.smaato.**
+-keep class com.smaato.** { public *; }
+
+-assumenosideeffects class android.util.Log {
+    public static *** d(...);
+    public static *** v(...);
+    public static *** i(...);
+}
+-keep public class com.smaato.soma.internal.connector.OrmmaBridge {
+public *;
+}
+-keepattributes *Annotation*
+# PUBNATIVE
+-keepattributes Signature
+-keep class net.pubnative.** { *; }
+-dontwarn net.pubnative.**
+-keep class com.squareup.picasso.** { *; }
+-dontwarn com.squareup.picasso.**
+# ADDICTIVEADS
+-dontwarn com.addictiveads.**
+-keep class com.addictiveads.** { public *; }
+# NATIVEX
+-dontwarn com.nativex.**
+-keep class com.nativex.** { public *; }

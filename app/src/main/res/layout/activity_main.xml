@@ -24,10 +24,10 @@
             android:layout_width="match_parent"
             android:layout_height="250dp"
             android:orientation="vertical"
-            android:layout_below="@id/loadedNetwork"
-            android:background="@color/ad_grey_dark"/>
+            android:layout_below="@id/loadedNetwork"/>
 
         <LinearLayout
+            android:id="@+id/buttons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -72,6 +72,14 @@
                 android:layout_height="wrap_content"
                 android:text="Custom Page"/>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/permutasyon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/buttons">
+
+        </TextView>
 
 
     </RelativeLayout>

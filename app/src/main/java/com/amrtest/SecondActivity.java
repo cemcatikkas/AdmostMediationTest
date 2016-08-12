@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import com.kokteyl.amrtest.R;
 
+import java.util.ArrayList;
+
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.AdMostManager;
 import admost.sdk.AdMostView;
@@ -86,6 +88,7 @@ public class SecondActivity extends Activity {
         });
 
         findViewById(R.id.showVideo).setVisibility(View.GONE);
+
     }
 
     @Override
@@ -121,4 +124,6 @@ public class SecondActivity extends Activity {
             interstitial.destroy();
         }
     }
+
+
 }

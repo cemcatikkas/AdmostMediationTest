@@ -15,5 +15,7 @@ public class Statics {
     public final static String NATIVEX_APP_ID = "test";
     public final static String UNITY_ID = "1085629"; // HeadBall Android Id
     public final static String NEXT_AGE_SITE_ID = "8a809417015555df6e42f308abe63499";
+    public final static String SMAATO_ID = "1001000570";
+    public final static String TAPJOY_SDK_KEY = "deneme";
 
 }
