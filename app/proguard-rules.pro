@@ -275,3 +275,6 @@ public *;
 # NATIVEX
 -dontwarn com.nativex.**
 -keep class com.nativex.** { public *; }
+# HYPERADS
+-dontwarn com.hyperadx.**
+-keep class com.hyperadx.** { public *; }

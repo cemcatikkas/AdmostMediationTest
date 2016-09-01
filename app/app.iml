@@ -158,8 +158,8 @@
     <orderEntry type="library" exported="" name="mobile-ads-5.7.2" level="project" />
     <orderEntry type="library" exported="" name="vungle-publisher-adaptive-id-3.3.4" level="project" />
     <orderEntry type="library" exported="" name="play-services-tasks-9.2.1" level="project" />
-    <orderEntry type="library" exported="" name="library-2.2.1" level="project" />
     <orderEntry type="library" exported="" name="MobFox-Android-SDK-Core-2.1.2" level="project" />
+    <orderEntry type="library" exported="" name="library-2.2.1" level="project" />
     <orderEntry type="library" exported="" name="addictiveads-android" level="project" />
     <orderEntry type="library" exported="" name="revmob" level="project" />
     <orderEntry type="library" exported="" name="mediationsdk-6.4.11" level="project" />
@@ -186,6 +186,7 @@
     <orderEntry type="library" exported="" name="mediabrix-sdk-FBless" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="volley-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="HyperAdxSDK_1.2.7" level="project" />
     <orderEntry type="library" exported="" name="ads-6.2.0" level="project" />
     <orderEntry type="library" exported="" name="tapjoy-11.7.0" level="project" />
     <orderEntry type="library" exported="" name="mm-ad-sdk-" level="project" />

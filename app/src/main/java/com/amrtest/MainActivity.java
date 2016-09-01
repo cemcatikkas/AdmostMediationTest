@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
         configuration.initIds(AdMostAdNetwork.FLURRY, Statics.FLURRY_API_KEY);
         configuration.initIds(AdMostAdNetwork.NATIVEX, Statics.NATIVEX_APP_ID);
         configuration.initIds(AdMostAdNetwork.UNITY, Statics.UNITY_ID);
-        configuration.initIds(AdMostAdNetwork.NEXTAGE, Statics.NEXT_AGE_SITE_ID);
+        configuration.initIds(AdMostAdNetwork.NEXAGE, Statics.NEXT_AGE_SITE_ID);
         configuration.initIds(AdMostAdNetwork.SMAATO, Statics.SMAATO_ID);
         configuration.initIds(AdMostAdNetwork.TAPJOY, Statics.TAPJOY_SDK_KEY);
 

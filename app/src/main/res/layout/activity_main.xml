@@ -24,7 +24,7 @@
         <LinearLayout
             android:id="@+id/adLayout"
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="285dp"
             android:orientation="vertical"
             android:layout_below="@id/loadedNetwork"/>
 

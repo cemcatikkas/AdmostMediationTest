@@ -34,16 +34,16 @@ repositories {
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:multidex:1.0.1'
+
     compile(name:'admost-sdk-debug', ext:'aar')
+    compile 'com.android.volley:volley:1.0.0'
+
+    compile 'com.google.android.gms:play-services-ads:9.2.1'
+    compile 'com.facebook.android:audience-network-sdk:4.11.0'
     compile(name:'unity-ads', ext:'aar')
     compile(name:'mm-ad-sdk', ext:'aar')
-
-    compile 'com.android.support:multidex:1.0.1'
-    compile 'com.android.volley:volley:1.0.0'
-    compile 'com.facebook.android:audience-network-sdk:4.11.0'
-    compile 'com.google.android.gms:play-services-ads:9.2.1'
     compile 'com.amazon.android:mobile-ads:5.7.2'
-    compile 'net.pubnative:library:2.0.1'
     compile 'com.flurry.android:analytics:6.2.0'
     compile 'com.flurry.android:ads:6.2.0'
     compile 'com.inmobi.monetization:inmobi-ads:5.3.0'
