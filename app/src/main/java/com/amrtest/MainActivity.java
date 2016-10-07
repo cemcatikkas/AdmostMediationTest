@@ -8,6 +8,7 @@ import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,8 +32,6 @@ public class MainActivity extends Activity {
     AdMostView ad;
     AdMostInterstitial interstitial;
     AdMostInterstitial video;
-    SharedPreferences.Editor editor;
-    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,19 +46,7 @@ public class MainActivity extends Activity {
             }
         });
 
-        AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(this);
-
-        configuration.initIds(AdMostAdNetwork.ADCOLONY, Statics.ADCOLONY_ID, Statics.ADCOLONY_REWARDED);
-        configuration.initIds(AdMostAdNetwork.VUNGLE, Statics.VUNGLE_ID);
-        configuration.initIds(AdMostAdNetwork.CHARTBOOST, Statics.CHARTBOOST_ID, Statics.CHARTBOOST_SIGNATURE);
-        configuration.initIds(AdMostAdNetwork.INMOBI, Statics.INMOBI_ACCOUNT_ID);
-        configuration.initIds(AdMostAdNetwork.FLURRY, Statics.FLURRY_API_KEY);
-        configuration.initIds(AdMostAdNetwork.NATIVEX, Statics.NATIVEX_APP_ID);
-        configuration.initIds(AdMostAdNetwork.UNITY, Statics.UNITY_ID);
-        configuration.initIds(AdMostAdNetwork.NEXAGE, Statics.NEXT_AGE_SITE_ID);
-        configuration.initIds(AdMostAdNetwork.SMAATO, Statics.SMAATO_ID);
-        configuration.initIds(AdMostAdNetwork.TAPJOY, Statics.TAPJOY_SDK_KEY);
-
+        AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(this, Statics.AMR_APP_ID);
         AdMostLog.setLogEnabled(true);
         AdMost.getInstance().init(configuration.build());
 
@@ -73,9 +60,6 @@ public class MainActivity extends Activity {
             }
         }, null);
         ad.getView();
-
-        preferences = getSharedPreferences("AMR_SP", Context.MODE_WORLD_READABLE);
-        editor = preferences.edit();
 
         findViewById(R.id.showInterstitial).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +101,9 @@ public class MainActivity extends Activity {
                     public void onLoad(String network, int position) {
                         LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
                         viewAd.removeAllViews();
+                        if (ad.getView().getParent() != null && ad.getView().getParent() instanceof ViewGroup) {
+                            ((ViewGroup)ad.getView().getParent()).removeAllViews();
+                        }
                         viewAd.addView(ad.getView());
                         ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
                     }
@@ -163,21 +150,6 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CustomTestActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        findViewById(R.id.switchDebugMode).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (preferences.getString("AMR_DEBUG_MODE","CLOSED").equals("OPEN")) {
-                    editor.putString("AMR_DEBUG_MODE","CLOSED");
-                    editor.apply();
-                    Toast.makeText(getApplicationContext(),"Debug mode closed", Toast.LENGTH_SHORT).show();
-                } else {
-                    editor.putString("AMR_DEBUG_MODE","OPEN");
-                    editor.apply();
-                    Toast.makeText(getApplicationContext(),"Debug mode open", Toast.LENGTH_SHORT).show();
-                }
             }
         });
 

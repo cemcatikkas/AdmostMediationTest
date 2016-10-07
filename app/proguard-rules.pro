@@ -278,3 +278,14 @@ public *;
 # HYPERADS
 -dontwarn com.hyperadx.**
 -keep class com.hyperadx.** { public *; }
+# APPNEXT
+-keep class com.appnext.** { *; }
+-dontwarn com.appnext.**
+
+# DISPLAYIO
+-keep class io.display.sdk.Controller.** { *; }
+-dontwarn io.display.sdk.Controller.**
+
+# INLOCOMEDIA
+-keep class com.inlocomedia.** { *; }
+-dontwarn com.inlocomedia.**

@@ -1,9 +1,11 @@
 package com.amrtest;
 
 public class Statics {
+    public final static String AMR_APP_ID = "6cc8e89a-b52a-4e9a-bb8c-579f7ec538fe";
     public final static String FULLSCREEN_ZONE = "f99e409b-f9ab-4a2e-aa9a-4d143e6809ae";
-    public final static String VIDEO_ZONE = "88cfcfd0-2f8c-4aba-9f36-cc0ac99ab140"; // Kafatopu Zone : e936f4b4-4d76-4d8c-ad6c-9618412ed523, test Zone : 88cfcfd0-2f8c-4aba-9f36-cc0ac99ab140
+    public final static String VIDEO_ZONE = "88cfcfd0-2f8c-4aba-9f36-cc0ac99ab140";
     public final static String BANNER_ZONE = "86644357-21d0-45a4-906a-37262461df65";
+
 
     public final static String INMOBI_ACCOUNT_ID = "4028cb8b2dbd0408012deb1bdda50431";
     public final static String FLURRY_API_KEY = "76DBB28TZHFF4GZ5TJ6Y";

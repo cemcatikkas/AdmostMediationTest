@@ -31,6 +31,7 @@ repositories {
     }
     maven { url "https://jitpack.io" }
     maven { url "https://dl.bintray.com/supersonic/android-sdk" }
+    maven { url  "http://dl.bintray.com/teads/TeadsSDK-android" }
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -40,20 +41,37 @@ dependencies {
     compile 'com.android.volley:volley:1.0.0'
 
     compile 'com.google.android.gms:play-services-ads:9.2.1'
-    compile 'com.facebook.android:audience-network-sdk:4.11.0'
     compile(name:'unity-ads', ext:'aar')
     compile(name:'mm-ad-sdk', ext:'aar')
+
+    // NATIVEX
+    compile 'com.google.code.gson:gson:2.6.2'
+
+    // AMAZON
     compile 'com.amazon.android:mobile-ads:5.7.2'
-    compile 'com.flurry.android:analytics:6.2.0'
+
+    // FLURRY
     compile 'com.flurry.android:ads:6.2.0'
-    compile 'com.inmobi.monetization:inmobi-ads:5.3.0'
-    compile('com.mopub:mopub-sdk:4.7.0@aar') { transitive = true }// MOPUB
-    compile 'com.supersonic.sdk:mediationsdk:6.4.11@jar'// SUPERSONIC
-    compile 'com.github.mobfox:MobFox-Android-SDK-Core:2.1.2'
-    compile 'com.flymob:FlyMobSdk:1.4.2' // FLYMOB
+
+    // INMOBI
+    compile 'com.inmobi.monetization:inmobi-ads:5.3.1'
+
+    // MOPUB
+    compile('com.mopub:mopub-sdk:4.8.0@aar') { transitive = true }
+    compile('com.mopub.volley:mopub-volley:1.1.0')
+
+    // SUPERSONIC
+    compile 'com.supersonic.sdk:mediationsdk:6.4.17@jar'
+
     // PUBNATIVE
     compile 'net.pubnative:library:2.2.1'
     compile 'net.pubnative:library.interstitial:2.2.1'
     compile 'net.pubnative:library.feed.banner:2.2.1'
     compile 'net.pubnative:library.video:2.2.1'
+
+    // INLOCOMEDIA
+    compile 'com.inlocomedia.android:android-sdk:2.3.3'
+
+    // TEADS
+    compile('tv.teads.sdk:androidsdk:2.2.13:fullRelease@aar') { transitive = true; }
 }
