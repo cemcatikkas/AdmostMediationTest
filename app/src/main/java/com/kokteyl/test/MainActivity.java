@@ -3,14 +3,10 @@ package com.kokteyl.test;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.util.ArrayList;
-
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.AdMostManager;
 import admost.sdk.AdMostView;
@@ -44,6 +40,7 @@ public class MainActivity extends Activity {
         AdMostLog.setLogEnabled(true);
         AdMost.getInstance().init(configuration.build());
 
+        // This is just for your own style, left null if you want default layout style
         final AdMostViewBinder binder = new AdMostViewBinder.Builder(R.layout.custom_layout)
                 .titleId(admost.sdk.R.id.ad_headline)
                 .textId(admost.sdk.R.id.ad_body)
@@ -55,7 +52,9 @@ public class MainActivity extends Activity {
                 .isFixed(false)
                 .isCloseable(false)//(type & AD_CLOSEABLE) != 0
                 .build();
+        // *******************************
 
+        // Banner request implementation
         ad = new AdMostView(this, Statics.BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
             @Override
             public void onLoad(String network, int position) {
@@ -66,6 +65,8 @@ public class MainActivity extends Activity {
             }
         }, binder);
         ad.getView();
+        // Banner implementation
+
 
         findViewById(R.id.showInterstitial).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -158,10 +159,6 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
-
-        //calculateRequestProbabilities();
-
-
     }
 
     @Override
@@ -201,133 +198,4 @@ public class MainActivity extends Activity {
         }
     }
 
-    private void calculateRequestProbabilities()  {
-        ArrayList<Double> weights = new ArrayList();
-        ArrayList<Double> requests = new ArrayList();
-        ArrayList<Double> impressions = new ArrayList();
-        ArrayList<Double> probability = new ArrayList();
-
-        weights.add(30000.0);
-        weights.add(6000.0);
-        weights.add(3852.0);
-        weights.add(3131.0);
-        weights.add(2280.0);
-        weights.add(1657.0);
-        weights.add(1312.0);
-        weights.add(1200.0);
-        weights.add(664.0);
-        weights.add(556.0);
-
-        requests.add(1324733.0);
-        requests.add(1082000.0);
-        requests.add(780599.0);
-        requests.add(488802.0);
-        requests.add(508240.0);
-        requests.add(610700.0);
-        requests.add(407500.0);
-        requests.add(401600.0);
-        requests.add(341000.0);
-        requests.add(614291.0);
-
-        impressions.add(3143.0);
-        impressions.add(342000.0);
-        impressions.add(46071.0);
-        impressions.add(218272.0);
-        impressions.add(25450.0);
-        impressions.add(121500.0);
-        impressions.add(167370.0);
-        impressions.add(136600.0);
-        impressions.add(117500.0);
-        impressions.add(31933.0);
-
-        double totalWeight = 0;
-
-        Log.i("PERMUT","started");
-
-        ArrayList<Double> emptyRates = new ArrayList();
-        for (int i=0; i<impressions.size(); i++) {
-            totalWeight += weights.get(i);
-            emptyRates.add(1.0 - (impressions.get(i)/requests.get(i)));
-            probability.add(0.0);
-        }
-
-        final String represantator = "abcdefghjklmnopqrstuxwvyz".substring(0,impressions.size());
-        Log.i("PERMUT",represantator);
-        ArrayList<String> permutations = permutation(represantator);
-
-        Log.i("PERMUT","size : " + permutations.size());
-        int size = permutations.size();
-        int itemCount = impressions.size();
-        for (int i=0; i<size;i++)  {
-            String repItem = permutations.get(i);
-            double tempTotalWeight = totalWeight;
-            double itemProbability = 1;
-            for (int j=0;j<itemCount;j++)  {
-                int placementIndex = represantator.indexOf(repItem.charAt(j));
-                itemProbability = itemProbability * weights.get(placementIndex) / tempTotalWeight;
-                tempTotalWeight = tempTotalWeight - weights.get(placementIndex);
-            }
-
-            double orderCallProbability = 1;
-            for (int j=0;j<itemCount;j++)  {
-                int placementIndex = represantator.indexOf(repItem.charAt(j));
-                probability.set(placementIndex, probability.get(placementIndex) + itemProbability * orderCallProbability);
-                orderCallProbability = orderCallProbability * emptyRates.get(placementIndex);
-            }
-        }
-
-        for (int i=0; i<probability.size();i++)  {
-            Log.i("PERMUT", i + " probability : " + probability.get(i));
-        }
-
-
-        //((TextView)findViewById(R.id.permutasyon)).setText(result);
-
-
-
-    }
-
-    /**
-     * List permutation of a string
-     *
-     * @param s the input string
-     * @return  the list of permutation
-     */
-    public static ArrayList<String> permutation(String s) {
-        // The result
-        ArrayList<String> res = new ArrayList<String>();
-        // If input string's length is 1, return {s}
-        if (s.length() == 1) {
-            res.add(s);
-        } else if (s.length() > 1) {
-            int lastIndex = s.length() - 1;
-            // Find out the last character
-            String last = s.substring(lastIndex);
-            // Rest of the string
-            String rest = s.substring(0, lastIndex);
-            // Perform permutation on the rest string and
-            // merge with the last character
-            res = merge(permutation(rest), last);
-        }
-        return res;
-    }
-
-    /**
-     * @param list a result of permutation, e.g. {"ab", "ba"}
-     * @param c    the last character
-     * @return     a merged new list, e.g. {"cab", "acb" ... }
-     */
-    public static ArrayList<String> merge(ArrayList<String> list, String c) {
-        ArrayList<String> res = new ArrayList<String>();
-        // Loop through all the string in the list
-        for (String s : list) {
-            // For each string, insert the last character to all possible postions
-            // and add them to the new list
-            for (int i = 0; i <= s.length(); ++i) {
-                String ps = new StringBuffer(s).insert(i, c).toString();
-                res.add(ps);
-            }
-        }
-        return res;
-    }
 }
