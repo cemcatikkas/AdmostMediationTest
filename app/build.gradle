@@ -43,6 +43,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-ads:9.2.1'
     compile(name:'unity-ads', ext:'aar')
     compile(name:'mm-ad-sdk', ext:'aar')
+    compile(name:'AudienceNetwork', ext:'aar')
 
     // NATIVEX
     compile 'com.google.code.gson:gson:2.6.2'

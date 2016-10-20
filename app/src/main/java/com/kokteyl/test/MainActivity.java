@@ -63,7 +63,8 @@ public class MainActivity extends Activity {
                 viewAd.addView(ad.getView());
                 ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
             }
-        }, binder);
+        }, null //,binder
+        );
         ad.getView();
         // Banner implementation
 
