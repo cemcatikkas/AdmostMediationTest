@@ -115,7 +115,7 @@ public class MainActivity extends Activity {
                         viewAd.addView(ad.getView());
                         ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
                     }
-                }, binder);
+                }, null);
                 ad.getView();
             }
         });
@@ -190,7 +190,7 @@ public class MainActivity extends Activity {
     public void onDestroy() {
         super.onDestroy();
         AdMost.getInstance().onDestroy(this);
-
+        AdMost.getInstance().stop();
         if (interstitial != null) {
             interstitial.destroy();
         }
