@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.kokteyl.test">
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.kokteyl.goal">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -20,13 +21,13 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
 
     <application
-        android:name="com.kokteyl.test.ApplicationStart"
+        android:name="com.kokteyl.goal.ApplicationStart"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:largeHeap="true">
-        <activity android:name="com.kokteyl.test.MainActivity" android:screenOrientation="portrait">
+        <activity android:name="com.kokteyl.goal.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,18 +36,30 @@
         </activity>
 
         <activity
-            android:name="com.kokteyl.test.SecondActivity"
+            android:name="com.kokteyl.goal.SecondActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|keyboard" />
 
         <activity
-            android:name="com.kokteyl.test.CustomTestActivity"
+            android:name="com.kokteyl.goal.CustomTestActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|keyboard" />
 
         <!-- APPLOVIN -->
         <meta-data android:name="applovin.sdk.key"
                    android:value="LN_kr2mUpK0zI5JgqhgM2IW5FkVtb0pxOpeDsPifkic1owhcbM-efUlwDEnpFZkdNNrDnTtVFUW2ODe_ZceD6N"  />
+
+        <!-- INMOBI -->
+
+        <receiver
+            android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            tools:ignore="ExportedReceiver">
+            <intent-filter>
+                <action android:name="com.inmobi.share.id"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 

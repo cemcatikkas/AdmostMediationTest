@@ -3,7 +3,7 @@
                 xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-    android:background="@color/colorwhite">
+    android:background="@color/colorblack">
 
     <RelativeLayout android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -23,8 +23,8 @@
 
         <LinearLayout
             android:id="@+id/adLayout"
-            android:layout_width="match_parent"
-            android:layout_height="285dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:orientation="vertical"
             android:layout_below="@id/loadedNetwork"/>
 

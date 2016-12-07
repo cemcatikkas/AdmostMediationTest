@@ -1,4 +1,4 @@
-package com.kokteyl.test;
+package com.kokteyl.goal;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -42,19 +42,19 @@ public class MainActivity extends Activity {
 
         // This is just for your own style, left null if you want default layout style
         final AdMostViewBinder binder = new AdMostViewBinder.Builder(R.layout.custom_layout)
-                .titleId(admost.sdk.R.id.ad_headline)
-                .textId(admost.sdk.R.id.ad_body)
-                .callToActionId(admost.sdk.R.id.ad_call_to_action)
-                .iconImageId(admost.sdk.R.id.ad_app_icon)
-                .mainImageId(admost.sdk.R.id.ad_image)
-                .backImageId(admost.sdk.R.id.ad_back)
-                .attributionId(admost.sdk.R.id.ad_attribution)
+                .titleId(R.id.ad_headline)
+                .textId(R.id.ad_body)
+                .callToActionId(R.id.ad_call_to_action)
+                .iconImageId(R.id.ad_app_icon)
+                .mainImageId(R.id.ad_image)
+                .adInfoAdChoices(R.id.ad_choices)
+                .adInfoFlurry(R.id.ad_flurry)
+                .adInfoMopub(R.id.ad_mopub_optout)
                 .isFixed(false)
                 .isCloseable(false)//(type & AD_CLOSEABLE) != 0
                 .build();
         // *******************************
 
-        // Banner request implementation
         ad = new AdMostView(this, Statics.BANNER_ZONE, AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
             @Override
             public void onLoad(String network, int position) {
@@ -63,7 +63,7 @@ public class MainActivity extends Activity {
                 viewAd.addView(ad.getView());
                 ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
             }
-        }, null //,binder
+        }, binder
         );
         ad.getView();
         // Banner implementation
@@ -78,6 +78,7 @@ public class MainActivity extends Activity {
                         @Override
                         public void onAction(int value) {
                             if (value == AdMostAdListener.LOADED) {
+                                interstitial.show();
                                 AdMostLog.log(value + " MainActivity LOADED");
                             } else if (value == AdMostAdListener.COMPLETED) {
                                 AdMostLog.log(value + " MainActivity COMPLETED");
@@ -91,7 +92,7 @@ public class MainActivity extends Activity {
 
                     interstitial = new AdMostInterstitial(MainActivity.this, Statics.FULLSCREEN_ZONE, listener);
                 }
-                interstitial.refreshAd(true);
+                interstitial.refreshAd(false);
             }
         });
 
@@ -115,7 +116,7 @@ public class MainActivity extends Activity {
                         viewAd.addView(ad.getView());
                         ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
                     }
-                }, null);
+                }, binder);
                 ad.getView();
             }
         });

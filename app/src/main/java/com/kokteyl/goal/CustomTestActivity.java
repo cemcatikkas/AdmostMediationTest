@@ -1,4 +1,4 @@
-package com.kokteyl.test;
+package com.kokteyl.goal;
 
 import android.app.Activity;
 import android.os.Bundle;

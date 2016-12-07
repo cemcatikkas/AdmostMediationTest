@@ -4,7 +4,7 @@ android {
     compileSdkVersion 24
     buildToolsVersion "24.0.0"
     defaultConfig {
-        applicationId 'com.kokteyl.test'
+        applicationId 'com.kokteyl.goal'
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
@@ -32,6 +32,8 @@ repositories {
     maven { url "https://jitpack.io" }
     maven { url "https://dl.bintray.com/supersonic/android-sdk" }
     maven { url  "http://dl.bintray.com/teads/TeadsSDK-android" }
+    maven { url "http://repo.appnext.com/" }
+    maven { url "https://adcolony.bintray.com/AdColony" }
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -39,8 +41,9 @@ dependencies {
 
     compile(name:'admost-sdk-debug', ext:'aar')
     compile 'com.android.volley:volley:1.0.0'
+    compile project(':mopub-sdk')
 
-    compile 'com.google.android.gms:play-services-ads:9.2.1'
+    compile 'com.google.android.gms:play-services-ads:10.0.1'
     compile(name:'unity-ads', ext:'aar')
     compile(name:'mm-ad-sdk', ext:'aar')
     compile(name:'AudienceNetwork', ext:'aar')
@@ -49,16 +52,16 @@ dependencies {
     compile 'com.google.code.gson:gson:2.6.2'
 
     // AMAZON
-    compile 'com.amazon.android:mobile-ads:5.7.2'
+    compile 'com.amazon.android:mobile-ads:5.8.1.1'
 
     // FLURRY
     compile 'com.flurry.android:ads:6.2.0'
 
     // INMOBI
-    compile 'com.inmobi.monetization:inmobi-ads:5.3.1'
+    compile 'com.inmobi.monetization:inmobi-ads:6.0.3'
 
     // MOPUB
-    compile('com.mopub:mopub-sdk:4.8.0@aar') { transitive = true }
+    /*compile('com.mopub:mopub-sdk:4.8.0@aar') { transitive = true }*/
     compile('com.mopub.volley:mopub-volley:1.1.0')
 
     // SUPERSONIC
@@ -70,9 +73,18 @@ dependencies {
     compile 'net.pubnative:library.feed.banner:2.2.1'
     compile 'net.pubnative:library.video:2.2.1'
 
+    // APPNEXT
+    compile('com.appnext.sdk:appnext-sdk:1.7.2')
+    compile 'com.appnext.sdk:native-ads-sdk:1.7.2'
+
     // INLOCOMEDIA
     compile 'com.inlocomedia.android:android-sdk:2.3.3'
 
     // TEADS
     compile('tv.teads.sdk:androidsdk:2.2.13:fullRelease@aar') { transitive = true; }
+
+    //ADCOLONY
+    compile 'com.adcolony:sdk:3.0.5'
+    compile 'com.android.support:support-annotations:24.2.1'
+
 }
