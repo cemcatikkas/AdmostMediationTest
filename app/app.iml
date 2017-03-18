@@ -110,7 +110,6 @@
     <orderEntry type="library" exported="" name="play-services-ads-lite-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="MobFox-Android-SDK-Core-3.2.5" level="project" />
     <orderEntry type="library" exported="" name="admost-sdk-debug-" level="project" />
-    <orderEntry type="library" exported="" name="inmobi-ads-6.0.3" level="project" />
     <orderEntry type="library" exported="" name="exoplayer-r1.5.6" level="project" />
     <orderEntry type="library" exported="" name="unity-ads-" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-interstitial-4.12.0" level="project" />
@@ -127,7 +126,7 @@
     <orderEntry type="library" exported="" name="revmob" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="volley-1.0.0" level="project" />
-    <orderEntry type="library" exported="" name="sdk-3.0.7" level="project" />
+    <orderEntry type="library" exported="" name="sdk-3.1.0" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-rewardedvideo-4.12.0" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-base-4.12.0" level="project" />
   </component>
