@@ -1,4 +1,4 @@
-package com.kokteyl.goal;
+package com.kokteyl.amrtest;
 
 import android.content.Context;
 import android.support.multidex.MultiDex;

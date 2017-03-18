@@ -1,7 +1,8 @@
-package com.kokteyl.goal;
+package com.kokteyl.amrtest;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,7 +28,7 @@ public class SecondActivity extends Activity {
         findViewById(R.id.otherPage).setVisibility(View.GONE);
         findViewById(R.id.customPageButton).setVisibility(View.GONE);
 
-        ad = new AdMostView(this, Statics.BANNER_ZONE, AdMostManager.getInstance().AD_BANNER, new AdMostViewListener() {
+        /*ad = new AdMostView(this, Statics.BANNER_ZONE, AdMostManager.getInstance().AD_BANNER, new AdMostViewListener() {
             @Override
             public void onLoad(String network, int position) {
                 LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
@@ -36,7 +37,22 @@ public class SecondActivity extends Activity {
                 ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
             }
         }, null);
-        ad.getView();
+        ad.getView();*/
+
+        if (Statics.AD_INTERSTITIAL == null) {
+            Statics.AD_INTERSTITIAL = new AdMostInterstitial(SecondActivity.this, Statics.FULLSCREEN_ZONE, new AdMostAdListener() {
+                @Override
+                public void onAction(int i) {
+                    Log.i("ADMOST","onAction : " + i);
+                }
+            });
+            Statics.AD_INTERSTITIAL.refreshAd(false);
+        }
+        else if(Statics.AD_INTERSTITIAL.isLoaded()){
+            Statics.AD_INTERSTITIAL.show();
+        } else {
+            Statics.AD_INTERSTITIAL.refreshAd(false);
+        }
 
         findViewById(R.id.showInterstitial).setOnClickListener(new View.OnClickListener() {
             @Override

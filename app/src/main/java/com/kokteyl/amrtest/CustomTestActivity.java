@@ -1,4 +1,4 @@
-package com.kokteyl.goal;
+package com.kokteyl.amrtest;
 
 import android.app.Activity;
 import android.os.Bundle;
