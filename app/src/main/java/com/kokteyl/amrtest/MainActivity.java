@@ -50,8 +50,11 @@ public class MainActivity extends Activity {
         findViewById(R.id.showInterstitial).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (interstitial != null && interstitial.isLoaded())
+                if (interstitial != null && interstitial.isLoaded()) {
                     interstitial.show();
+                    findViewById(R.id.showInterstitial).setVisibility(View.GONE);
+                }
+
             }
         });
 
@@ -65,8 +68,10 @@ public class MainActivity extends Activity {
         findViewById(R.id.showVideo).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (video != null && video.isLoaded())
+                if (video != null && video.isLoaded()) {
                     video.show();
+                    findViewById(R.id.showVideo).setVisibility(View.GONE);
+                }
             }
         });
 
