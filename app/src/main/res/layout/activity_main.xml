@@ -69,19 +69,13 @@
             android:layout_weight="1"
             android:gravity="right"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <Button
-                android:id="@+id/customPageButton"
+                android:id="@+id/listPage"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:text="Custom Page"/>
-
-            <Button
-                android:id="@+id/otherPage"
-                android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:text="Next Page"/>
+                android:text="List Page"/>
 
         </LinearLayout>
         </LinearLayout>

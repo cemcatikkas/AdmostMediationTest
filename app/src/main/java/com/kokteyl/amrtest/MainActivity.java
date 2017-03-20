@@ -28,17 +28,8 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         findViewById(R.id.showVideo).setVisibility(View.GONE);
         findViewById(R.id.showInterstitial).setVisibility(View.GONE);
-
-        findViewById(R.id.customPageButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CustomTestActivity.class);
-                startActivity(intent);
-            }
-        });
 
         AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(this, Statics.AMR_APP_ID);
         AdMost.getInstance().init(configuration.build());
@@ -72,6 +63,14 @@ public class MainActivity extends Activity {
                     video.show();
                     findViewById(R.id.showVideo).setVisibility(View.GONE);
                 }
+            }
+        });
+
+        findViewById(R.id.listPage).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ListSampleActivity.class);
+                startActivity(intent);
             }
         });
 

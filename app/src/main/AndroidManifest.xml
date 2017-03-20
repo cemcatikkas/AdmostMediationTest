@@ -39,12 +39,7 @@
         </activity>
 
         <activity
-            android:name="com.kokteyl.amrtest.SecondActivity"
-            android:screenOrientation="portrait"
-            android:configChanges="orientation|screenSize|keyboard" />
-
-        <activity
-            android:name="com.kokteyl.amrtest.CustomTestActivity"
+            android:name="com.kokteyl.amrtest.ListSampleActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|keyboard" />
 
