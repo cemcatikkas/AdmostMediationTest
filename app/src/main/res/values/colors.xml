@@ -7,13 +7,6 @@
     <color name="colorblack">#000000</color>
     <color name="colorRed">#FF0000</color>
 
+    <color name="amr_ad_background">#00FFFFFF</color>
 
-    <color name="ad_background">#00FFFFFF</color>
-
-
-    <color name="admost_ad_1">#00FF00</color>
-    <color name="admost_ad_2">#0000FF</color>
-    <color name="admost_ad_3">#000000</color>
-    <color name="admost_ad_4">#001100</color>
-    <color name="admost_ad_5">#000000</color>
 </resources>
