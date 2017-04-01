@@ -289,3 +289,7 @@ public *;
 # INLOCOMEDIA
 -keep class com.inlocomedia.** { *; }
 -dontwarn com.inlocomedia.**
+
+# ADCOLONY
+-dontwarn com.adcolony.**
+-keep class com.adcolony.** { *; }

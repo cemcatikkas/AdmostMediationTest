@@ -85,46 +85,53 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/manifests" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/multi-dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/pre-dexed" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/proguard-rules" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/res" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/rs" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
+      <excludeFolder url="file://$MODULE_DIR$/build/reports" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="mopub-sdk-native-video-4.12.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-tasks-10.2.0" level="project" />
+    <orderEntry type="library" exported="" name="appnext-2.0.0-" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-4.12.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tasks-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-gass-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="applovin-sdk-6.4.2" level="project" />
     <orderEntry type="library" exported="" name="support-v4-24.0.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-base-10.0.1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-base-10.2.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-gass-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-23.1.1" level="project" />
-    <orderEntry type="library" exported="" name="chartboost" level="project" />
-    <orderEntry type="library" exported="" name="play-services-clearcut-10.0.1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-clearcut-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="InMobi-6.1.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-lite-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="MobFox-Android-SDK-Core-3.2.5" level="project" />
+    <orderEntry type="library" exported="" name="flymob-2.0.5" level="project" />
+    <orderEntry type="library" exported="" name="play-services-ads-lite-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="admost-sdk-debug-" level="project" />
+    <orderEntry type="library" exported="" name="play-services-location-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="exoplayer-r1.5.6" level="project" />
     <orderEntry type="library" exported="" name="unity-ads-" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-interstitial-4.12.0" level="project" />
     <orderEntry type="library" exported="" name="flurryAds_6.7.0" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="multidex-instrumentation-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-ads-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-banner-4.12.0" level="project" />
     <orderEntry type="library" exported="" name="mopub-volley-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="flurryAnalytics_6.7.0" level="project" />
-    <orderEntry type="library" exported="" name="SOMAAndroidSDK5.1.0" level="project" />
+    <orderEntry type="library" exported="" name="chartboost-6.6.1" level="project" />
+    <orderEntry type="library" exported="" name="revmob-9.2.3" level="project" />
+    <orderEntry type="library" exported="" name="mobfox-3.2.5" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-native-static-4.12.0" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-24.0.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-basement-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="revmob" level="project" />
+    <orderEntry type="library" exported="" name="smaato-5.1.2" level="project" />
+    <orderEntry type="library" exported="" name="play-services-basement-10.2.0" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="volley-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="sdk-3.1.0" level="project" />
+    <orderEntry type="library" exported="" name="facebook-4.20-" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-rewardedvideo-4.12.0" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-base-4.12.0" level="project" />
   </component>

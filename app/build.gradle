@@ -34,6 +34,7 @@ repositories {
     maven { url "http://dl.bintray.com/teads/TeadsSDK-android" }
     maven { url "https://adcolony.bintray.com/AdColony" }
     maven { url "https://s3.amazonaws.com/avocarrot-android-builds/dist" }
+    //maven { url "http://repo.appnext.com/" }
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -42,12 +43,22 @@ dependencies {
     compile(name:'admost-sdk-debug', ext:'aar')
     compile 'com.android.volley:volley:1.0.0'
 
-    compile 'com.google.android.gms:play-services-ads:10.0.1'
+    compile 'com.google.android.gms:play-services-ads:10.2.0'
+
     compile(name:'unity-ads', ext:'aar')
+    compile(name:'facebook-4.20', ext:'aar')
 
     // MOPUB
     compile('com.mopub:mopub-sdk:4.12.0@aar') { transitive = true }
 
+    // ADCOLONY
     compile 'com.adcolony:sdk:3.1.0'
+
+    // APPNEXT
+    compile(name:'appnext-2.0.0', ext:'aar')
+    compile 'com.google.android.gms:play-services-location:10.2.0'
+    //compile('com.appnext.sdk:appnext-sdk:1.7.6')
+    //compile 'com.appnext.sdk:native-ads-sdk:1.7.6'
+
 
 }
