@@ -140,10 +140,8 @@ public class MainActivity extends Activity {
             };
 
             video = new AdMostInterstitial(MainActivity.this, Statics.VIDEO_ZONE, listener);
-        } else {
-
-            video.refreshAd(false);
         }
+        video.refreshAd(false);
 
     }
 
