@@ -179,7 +179,7 @@
 # MOPUB
 -dontwarn com.mopub.**
 -keepclassmembers class com.mopub.** { public *; }
--keep public class com.mopub.**
+-keep class com.mopub.**
 -keep public class android.webkit.JavascriptInterface {}
 -keep class * extends com.mopub.mobileads.CustomEventBanner {}
 -keep class * extends com.mopub.mobileads.CustomEventInterstitial {}

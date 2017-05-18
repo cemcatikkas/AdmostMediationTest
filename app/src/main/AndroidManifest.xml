@@ -49,7 +49,7 @@
 
         <!-- INMOBI -->
 
-        <receiver
+        <!--<receiver
             android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
             android:enabled="true"
             android:exported="true"
@@ -57,7 +57,7 @@
             <intent-filter>
                 <action android:name="com.inmobi.share.id"/>
             </intent-filter>
-        </receiver>
+        </receiver>-->
 
     </application>
 
