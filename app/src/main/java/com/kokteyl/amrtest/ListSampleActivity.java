@@ -185,7 +185,17 @@ public class ListSampleActivity extends Activity {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
         AdMost.getInstance().onDestroy(this);
+
+        if (adapter != null) {
+            for (int i=0; i<adapter.getCount();i++) {
+                if (adapter.getItem(i) instanceof AdMostView) {
+                    ((AdMostView)adapter.getItem(i)).destroy();
+                }
+            }
+        }
+
     }
 
 

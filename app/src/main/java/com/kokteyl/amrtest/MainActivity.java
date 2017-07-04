@@ -48,11 +48,9 @@ public class MainActivity extends Activity {
 
         //getBanner();
         //getInterstitial();
-        //getVideo();
+        getVideo();
         //getBannerFromDFP();
         //getInterstitialFromDFP();
-
-        //AdMostAnalyticsManager.getInstance().register();
 
         findViewById(R.id.showInterstitial).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +124,10 @@ public class MainActivity extends Activity {
                 }
                 ((TextView)findViewById(R.id.loadedNetwork)).setText(network);
             }
-        }, null);
+        }, binder);
+
+        //ad.testAd(AdMostAdNetwork.FACEBOOK, AdMostAdType.BANNER, "865748010159274_928003970600344");
+
         ad.getView();
     }
 
@@ -172,6 +173,7 @@ public class MainActivity extends Activity {
                         findViewById(R.id.showInterstitial).setVisibility(View.VISIBLE);
                         AdMostLog.log(value + " MainActivity LOADED");
                     } else if (value == AdMostAdListener.FAILED) {
+                        findViewById(R.id.showInterstitial).setVisibility(View.VISIBLE);
                         AdMostLog.log(value + " MainActivity FAILED");
                     } else if (value == AdMostAdListener.CLOSED) {
                         findViewById(R.id.showInterstitial).setVisibility(View.GONE);

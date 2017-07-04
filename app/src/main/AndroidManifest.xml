@@ -28,7 +28,7 @@
         android:supportsRtl="true"
         android:largeHeap="true">
 
-        <activity android:name="com.kokteyl.amrtest.MainActivity" android:screenOrientation="portrait"
+        <activity android:name=".MainActivity" android:screenOrientation="portrait"
                   android:configChanges="orientation|screenSize|keyboard"
                   android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">
             <intent-filter>
@@ -46,18 +46,6 @@
         <!-- APPLOVIN -->
         <meta-data android:name="applovin.sdk.key"
                    android:value="LN_kr2mUpK0zI5JgqhgM2IW5FkVtb0pxOpeDsPifkic1owhcbM-efUlwDEnpFZkdNNrDnTtVFUW2ODe_ZceD6N"  />
-
-        <!-- INMOBI -->
-
-        <!--<receiver
-            android:name="com.inmobi.commons.core.utilities.uid.ImIdShareBroadCastReceiver"
-            android:enabled="true"
-            android:exported="true"
-            tools:ignore="ExportedReceiver">
-            <intent-filter>
-                <action android:name="com.inmobi.share.id"/>
-            </intent-filter>
-        </receiver>-->
 
     </application>
 
