@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -40,25 +41,23 @@ public class MainActivity extends Activity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        findViewById(R.id.showVideo).setVisibility(View.GONE);
-        findViewById(R.id.showInterstitial).setVisibility(View.GONE);
 
         AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(this, Statics.AMR_APP_ID);
         AdMost.getInstance().init(configuration.build());
 
-        //getBanner();
+        getBanner();
         //getInterstitial();
-        getVideo();
+        //getVideo();
         //getBannerFromDFP();
         //getInterstitialFromDFP();
 
         findViewById(R.id.showInterstitial).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //getInterstitialFromDFP();
                 if (interstitial != null && interstitial.isLoaded()) {
                     interstitial.show();
-                    findViewById(R.id.showInterstitial).setVisibility(View.GONE);
+                } else {
+                    getInterstitial();
                 }
 
             }
@@ -67,7 +66,6 @@ public class MainActivity extends Activity {
         findViewById(R.id.refreshBanner).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //getBannerFromDFP();
                 getBanner();
             }
         });
@@ -77,7 +75,8 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 if (video != null && video.isLoaded()) {
                     video.show();
-                    findViewById(R.id.showVideo).setVisibility(View.GONE);
+                } else {
+                    getVideo();
                 }
             }
         });
@@ -139,14 +138,14 @@ public class MainActivity extends Activity {
                 public void onAction(int value) {
                     if (value == AdMostAdListener.LOADED) {
                         AdMostLog.log(value + " MainActivity LOADED");
-                        findViewById(R.id.showVideo).setVisibility(View.VISIBLE);
+                        ((Button)findViewById(R.id.showVideo)).setText("Show Video");
                     } else if (value == AdMostAdListener.COMPLETED) {
                         AdMostLog.log(value + " MainActivity COMPLETED");
                     } else if (value == AdMostAdListener.FAILED) {
                         AdMostLog.log(value + " MainActivity FAILED");
                     } else if (value == AdMostAdListener.CLOSED) {
                         AdMostLog.log(value + " MainActivity CLOSED");
-                        getVideo();
+                        ((Button)findViewById(R.id.showVideo)).setText("Get Video");
                     }
                 }
 
@@ -170,14 +169,12 @@ public class MainActivity extends Activity {
                 @Override
                 public void onAction(int value) {
                     if (value == AdMostAdListener.LOADED) {
-                        findViewById(R.id.showInterstitial).setVisibility(View.VISIBLE);
+                        ((Button)findViewById(R.id.showInterstitial)).setText("Show Interstitial");
                         AdMostLog.log(value + " MainActivity LOADED");
                     } else if (value == AdMostAdListener.FAILED) {
-                        findViewById(R.id.showInterstitial).setVisibility(View.VISIBLE);
                         AdMostLog.log(value + " MainActivity FAILED");
                     } else if (value == AdMostAdListener.CLOSED) {
-                        findViewById(R.id.showInterstitial).setVisibility(View.GONE);
-                        getInterstitial();
+                        ((Button)findViewById(R.id.showInterstitial)).setText("Get Interstitial");
                         AdMostLog.log(value + " MainActivity CLOSED");
                     }
                 }
@@ -192,129 +189,6 @@ public class MainActivity extends Activity {
             interstitial = new AdMostInterstitial(MainActivity.this, Statics.FULLSCREEN_ZONE, listener);
         }
         interstitial.refreshAd(false);
-
-    }
-
-    private void getBannerFromDFP() {
-
-        final PublisherAdView adView = new PublisherAdView(this);
-        adView.setAdUnitId("/96769799/amr_android_banner");
-        adView.setAdSizes(new AdSize(320,50));
-        PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
-                .build();
-
-        adView.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-                super.onAdClosed();
-            }
-
-            @Override
-            public void onAdFailedToLoad(int i) {
-                super.onAdFailedToLoad(i);
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                super.onAdLeftApplication();
-            }
-
-            @Override
-            public void onAdOpened() {
-                super.onAdOpened();
-            }
-
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-
-                LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
-                viewAd.removeAllViews();
-                if (adView.getParent() != null && adView.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) adView.getParent()).removeAllViews();
-                }
-                viewAd.addView(adView);
-            }
-        });
-        adView.loadAd(adRequest);
-
-
-    }
-
-    private void getBannerFromAdmob() {
-        final AdView adView = new AdView(this);
-        adView.setAdSize(AdSize.BANNER);
-        adView.setAdUnitId("ca-app-pub-3297656589511112/5853780584");
-        adView.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                Log.i("ADMOST","MainActivity onAdLoaded");
-                super.onAdLoaded();
-                LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
-                viewAd.removeAllViews();
-                if (adView.getParent() != null && adView.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) adView.getParent()).removeAllViews();
-                }
-                viewAd.addView(adView);
-            }
-
-
-            @Override
-            public void onAdFailedToLoad(int i) {
-                super.onAdFailedToLoad(i);
-                Log.i("HATA","onAdFailedToLoad : " + i);
-            }
-        });
-
-
-        AdRequest adRequest = new AdRequest.Builder()
-                //.addTestDevice("FAE527848950D4725E7D968AFCA0C1FB")
-                .build();
-        adView.loadAd(adRequest);
-    }
-
-    private void getInterstitialFromDFP() {
-
-        final PublisherInterstitialAd mPublisherInterstitialAd = new PublisherInterstitialAd(this);
-        mPublisherInterstitialAd.setAdUnitId("/96769799/amr_test");
-
-        mPublisherInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                mPublisherInterstitialAd.show();
-            }
-        });
-        PublisherAdRequest adRequest = new PublisherAdRequest.Builder()
-                .build();
-
-        mPublisherInterstitialAd.loadAd(adRequest);
-
-    }
-
-    private void getInterstitialFromAdmob() {
-
-        final InterstitialAd mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-3297656589511112/7247958587");
-
-        mInterstitialAd.setAdListener(new AdListener() {
-            @Override
-            public void onAdClosed() {
-
-            }
-
-            @Override
-            public void onAdLoaded() {
-                super.onAdLoaded();
-                mInterstitialAd.show();
-            }
-        });
-
-        AdRequest adRequest = new AdRequest.Builder()
-                //.addTestDevice("FAE527848950D4725E7D968AFCA0C1FB")
-                .build();
-
-        mInterstitialAd.loadAd(adRequest);
 
     }
 

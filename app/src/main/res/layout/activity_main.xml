@@ -53,13 +53,13 @@
                 android:id="@+id/showInterstitial"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:text="Show Interstitial"/>
+                android:text="Get Interstitial"/>
 
             <Button
                 android:id="@+id/showVideo"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:text="Show Video"/>
+                android:text="Get Video"/>
 
             </LinearLayout>
 

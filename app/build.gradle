@@ -29,78 +29,24 @@ repositories {
     flatDir {
         dirs 'libs'
     }
-    //maven { url "https://jitpack.io" }
-    //maven { url "https://dl.bintray.com/supersonic/android-sdk" }
-    //maven { url "http://dl.bintray.com/teads/TeadsSDK-android" }
-    //maven { url "https://adcolony.bintray.com/AdColony" }
-    //maven { url "https://s3.amazonaws.com/avocarrot-android-builds/dist" }
     maven { url 'http://repo.admost.com:8081/artifactory/test-before-publish' }
-    maven { url "https://dl.bintray.com/ironsource-mobile/android-sdk" }
-    maven {
-        url  "https://adcolony.bintray.com/AdColony"
-    }
-    //maven { url "http://repo.appnext.com/" }
+    jcenter()
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:multidex:1.0.1'
 
-    compile 'com.android.support:support-v4:24.0.0'
-
-    //compile 'com.admost.sdk:amr:1.3.1.15'
-    compile(name:'admost-sdk', ext:'aar')
     compile 'com.android.volley:volley:1.0.0'
-
-    compile 'com.google.android.gms:play-services-ads:10.2.0'
-
-    compile 'com.adcolony:sdk:3.1.2'
+    compile 'com.admost.sdk:amr:1.3.5'
+    compile 'com.google.android.gms:play-services-basement:10.0.1'
     compile 'com.google.android.gms:play-services-ads:10.0.1'
-    compile 'com.android.support:support-annotations:25.0.1'
+    compile 'com.admost.sdk:facebook:4.24'
+    compile 'com.admost.sdk:flurry:7.0.0'
+    compile 'com.admost.sdk:inmobi:6.2.3'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.android.support:appcompat-v7:+'
+    compile('com.mopub:mopub-sdk:4.15.0@aar') {transitive = true}
+    compile 'com.admost.sdk:vungle:5.1.0'
 
-    //compile 'com.admost.sdk:flurry:7.0.0'
 
-
-/*
-    compile 'com.admost.sdk:amazon:5.8.1.1'
-    compile 'com.admost.sdk:applovin:7.0.3'
-
-    compile 'com.admost.sdk:avocarrot:3.7.8'
-    compile 'com.android.support:recyclerview-v7:25.2.0' //avocarrot
-    compile 'com.android.support:appcompat-v7:25.2.0' //avocarrot
-
-    compile 'com.admost.sdk:flymob:2.0.5'
-
-    compile 'com.admost.sdk:inmobi:6.2.1'
-    compile 'com.squareup.picasso:picasso:2.5.2' //inmobi
-
-    compile 'com.admost.sdk:ironsource:6.5.3'
-    compile 'com.admost.sdk:leadbolt:8.0'
-    compile 'com.admost.sdk:mobfox:3.2.5d'
-    compile 'com.admost.sdk:revmob:9.2.3'
-    compile 'com.admost.sdk:smaato:6.0.0'
-    compile 'com.admost.sdk:startapp:3.6.2'
-
-    compile 'com.admost.sdk:appnext:2.0.2.457'
-    compile 'com.google.android.gms:play-services-location:10.2.0'
-    compile 'com.google.android.gms:play-services-basement:10.2.0'
-
-    compile 'com.admost.sdk:facebook:4.22'
-    compile 'com.admost.sdk:loopme:5.1.6'
-    compile 'com.admost.sdk:millenial:6.4.0'
-    compile 'com.admost.sdk:tappx:3.0.3'
-    compile 'com.admost.sdk:unity:2.1.0'
-
-    compile 'com.admost.sdk:adcolony:3.1.2'
-    compile 'com.admost.sdk:chartboost:6.6.3'
-
-    compile 'com.admost.sdk:nativex:5.5.9'
-    compile 'com.google.code.gson:gson:+' // nativex
-
-    compile 'com.admost.sdk:adtrial:2017-05-02'
-
-    compile('com.mopub:mopub-sdk:4.14.0@aar') {
-        transitive = true
-    }
-    compile('com.mopub.volley:mopub-volley:1.1.0')
-*/
 }
