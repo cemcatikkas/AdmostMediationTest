@@ -48,8 +48,6 @@ public class MainActivity extends Activity {
         getBanner();
         //getInterstitial();
         //getVideo();
-        //getBannerFromDFP();
-        //getInterstitialFromDFP();
 
         findViewById(R.id.showInterstitial).setOnClickListener(new View.OnClickListener() {
             @Override

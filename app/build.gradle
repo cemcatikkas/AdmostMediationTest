@@ -29,7 +29,7 @@ repositories {
     flatDir {
         dirs 'libs'
     }
-    maven { url 'http://repo.admost.com:8081/artifactory/test-before-publish' }
+    maven { url 'http://repo.admost.com:8081/artifactory/amr' }
     jcenter()
 }
 dependencies {
@@ -41,7 +41,7 @@ dependencies {
     compile 'com.google.android.gms:play-services-basement:10.0.1'
     compile 'com.google.android.gms:play-services-ads:10.0.1'
     compile 'com.admost.sdk:facebook:4.24'
-    compile 'com.admost.sdk:flurry:7.0.0'
+    compile 'com.admost.sdk:flurry:7.2.0'
     compile 'com.admost.sdk:inmobi:6.2.3'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.android.support:appcompat-v7:+'
