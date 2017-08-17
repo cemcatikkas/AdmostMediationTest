@@ -113,6 +113,7 @@
     <orderEntry type="library" exported="" name="flurry-7.2.0" level="project" />
     <orderEntry type="library" exported="" name="play-services-ads-lite-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="mopub-sdk-interstitial-4.15.0" level="project" />
+    <orderEntry type="library" exported="" name="fyber-sdk-8.15.0" level="project" />
     <orderEntry type="library" exported="" name="exoplayer-r1.5.6" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="multidex-instrumentation-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="facebook-4.24" level="project" />
