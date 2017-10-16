@@ -97,40 +97,28 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="vungle-5.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-core-ui-26.0.0-alpha1" level="project" />
-    <orderEntry type="library" exported="" name="picasso-2.5.2" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-26.0.0-alpha1" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-native-video-4.15.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-basement-11.0.1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-ads-lite-11.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-26.0.0-alpha1" level="project" />
     <orderEntry type="library" exported="" name="support-media-compat-26.0.0-alpha1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-tasks-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-gass-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="inmobi-6.2.3" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-4.15.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-base-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="recyclerview-v7-23.1.1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-clearcut-10.0.1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-ads-11.0.1" level="project" />
     <orderEntry type="library" exported="" name="admost-sdk-" level="project" />
-    <orderEntry type="library" exported="" name="flurry-7.2.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-lite-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-interstitial-4.15.0" level="project" />
-    <orderEntry type="library" exported="" name="fyber-sdk-8.15.0" level="project" />
-    <orderEntry type="library" exported="" name="exoplayer-r1.5.6" level="project" />
+    <orderEntry type="library" exported="" name="play-services-base-11.0.1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-gass-11.0.1" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="multidex-instrumentation-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="facebook-4.24" level="project" />
-    <orderEntry type="library" exported="" name="mopub-volley-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-core-utils-26.0.0-alpha1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-clearcut-11.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-vector-drawable-26.0.0-alpha1" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-banner-4.15.0" level="project" />
-    <orderEntry type="library" exported="" name="play-services-ads-10.0.1" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-native-static-4.15.0" level="project" />
+    <orderEntry type="library" exported="" name="play-services-safetynet-11.0.1" level="project" />
+    <orderEntry type="library" exported="" name="chartboost-7.0.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-26.0.0-alpha1" level="project" />
-    <orderEntry type="library" exported="" name="play-services-basement-10.0.1" level="project" />
     <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
     <orderEntry type="library" exported="" name="volley-1.0.0" level="project" />
+    <orderEntry type="library" exported="" name="recyclerview-v7-26.0.0-alpha1" level="project" />
     <orderEntry type="library" exported="" name="support-compat-26.0.0-alpha1" level="project" />
+    <orderEntry type="library" exported="" name="play-services-tasks-11.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-26.0.0-alpha1" level="project" />
     <orderEntry type="library" exported="" name="animated-vector-drawable-26.0.0-alpha1" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-rewardedvideo-4.15.0" level="project" />
-    <orderEntry type="library" exported="" name="mopub-sdk-base-4.15.0" level="project" />
   </component>
 </module>

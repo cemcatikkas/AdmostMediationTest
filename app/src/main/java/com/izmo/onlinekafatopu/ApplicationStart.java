@@ -1,4 +1,4 @@
-package com.kokteyl.amrtest;
+package com.izmo.onlinekafatopu;
 
 import android.content.Context;
 import android.support.multidex.MultiDex;

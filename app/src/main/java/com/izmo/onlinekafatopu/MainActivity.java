@@ -1,4 +1,4 @@
-package com.kokteyl.amrtest;
+package com.izmo.onlinekafatopu;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.kokteyl.onlinekafatopu.R;
+
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.AdMostManager;
 import admost.sdk.AdMostView;
@@ -20,8 +22,6 @@ import admost.sdk.base.AdMostConfiguration;
 import admost.sdk.base.AdMostLog;
 import admost.sdk.listener.AdMostAdListener;
 import admost.sdk.listener.AdMostViewListener;
-
-import static com.kokteyl.amrtest.R.layout.custom_layout_allgoals;
 
 public class MainActivity extends Activity {
 
@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
         AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(this, Statics.AMR_APP_ID);
         AdMost.getInstance().init(configuration.build());
 
-        getBanner();
+        //getBanner();
         //getInterstitial();
         //getVideo();
 
@@ -69,6 +69,7 @@ public class MainActivity extends Activity {
                 } else {
                     getVideo();
                 }
+
             }
         });
 
@@ -94,13 +95,11 @@ public class MainActivity extends Activity {
                 AdMost.getInstance().startTestSuite(new String[] {Statics.BANNER_ZONE, Statics.FULLSCREEN_ZONE, Statics.VIDEO_ZONE});
             }
         });
-
-
     }
 
-        private void getBanner() {
+    private void getBanner() {
         // This is just for your own style, left null if you want default layout style
-        final AdMostViewBinder binder =  new AdMostViewBinder.Builder(custom_layout_allgoals)
+        final AdMostViewBinder binder =  new AdMostViewBinder.Builder(R.layout.custom_layout_allgoals)
                 .titleId(R.id.cardTitle)
                 .textId(R.id.cardDetailText)
                 .callToActionId(R.id.CallToActionTextView)
@@ -116,6 +115,11 @@ public class MainActivity extends Activity {
         }
         ((TextView)findViewById(R.id.loadedNetwork)).setText("");
         ad = new AdMostView(MainActivity.this, Statics.BANNER_ZONE,AdMostManager.getInstance().AD_MEDIUM_RECTANGLE, new AdMostViewListener() {
+            @Override
+            public void onLoad(String s, int i) {
+
+            }
+
             @Override
             public void onReady(String network, View adView) {
                 Log.i("ADMOST","onReady : " + network);
@@ -145,15 +149,18 @@ public class MainActivity extends Activity {
             AdMostAdListener listener = new AdMostAdListener() {
 
                 @Override
+                public void onAction(int i) {
+
+                }
+
+                @Override
                 public void onReady(String network) {
-                    super.onReady(network);
                     AdMostLog.log("MainActivity LOADED network :" + network);
                     ((Button)findViewById(R.id.showVideo)).setText("Show Video");
                 }
 
                 @Override
                 public void onFail(int errorCode) {
-                    super.onFail(errorCode);
                     String message;
                     switch (errorCode) {
                         case AdMost.AD_ERROR_NO_FILL :
@@ -177,21 +184,25 @@ public class MainActivity extends Activity {
 
                 @Override
                 public void onDismiss(String message) {
-                    super.onDismiss(message);
                     AdMostLog.log("MainActivity ONDISMISS");
                     ((Button)findViewById(R.id.showVideo)).setText("Get Video");
                 }
 
                 @Override
                 public void onComplete(String network) {
-                    super.onComplete(network);
                     AdMostLog.log("MainActivity COMPLETED network : " + network);
                 }
 
+
+
                 @Override
                 public void onShown(String network) {
-                    super.onShown(network);
                     AdMostLog.log("MainActivity OnShown network: " + network);
+                }
+
+                @Override
+                public void onClicked(String s) {
+
                 }
             };
 
@@ -207,19 +218,22 @@ public class MainActivity extends Activity {
             AdMostAdListener listener = new AdMostAdListener() {
                 @Override
                 public void onAction(int value) {
-                    super.onAction(value);
                 }
 
                 @Override
                 public void onDismiss(String message) {
-                    super.onDismiss(message);
                     ((Button)findViewById(R.id.showInterstitial)).setText("Get Interstitial");
                     AdMostLog.log("MainActivity ONDISMISS");
                 }
 
                 @Override
+                public void onComplete(String s) {
+
+                }
+
+
+                @Override
                 public void onFail(int errorCode) {
-                    super.onFail(errorCode);
                     String message;
                     switch (errorCode) {
                         case AdMost.AD_ERROR_NO_FILL :
@@ -243,22 +257,24 @@ public class MainActivity extends Activity {
 
                 @Override
                 public void onReady(String network) {
-                    super.onReady(network);
                     ((Button)findViewById(R.id.showInterstitial)).setText("Show Interstitial");
                     AdMostLog.log("MainActivity LOADED network : " + network);
                 }
 
                 @Override
                 public void onShown(String network) {
-                    super.onShown(network);
                     AdMostLog.log("MainActivity OnShown network: " + network);
+                }
+
+                @Override
+                public void onClicked(String s) {
+
                 }
             };
 
             interstitial = new AdMostInterstitial(MainActivity.this, Statics.FULLSCREEN_ZONE, listener);
         }
         interstitial.refreshAd(false);
-
     }
 
     @Override
