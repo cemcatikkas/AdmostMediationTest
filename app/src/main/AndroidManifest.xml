@@ -27,6 +27,17 @@
         android:supportsRtl="true"
         android:largeHeap="true">
 
+        <receiver
+            android:name="admost.sdk.InstallReferrerReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.google.android.gms.analytics.CampaignTrackingService"
+                 android:enabled="true"
+                 android:exported="false" />
+
         <activity android:name="com.kokteyl.amrtest.MainActivity" android:screenOrientation="portrait"
                   android:configChanges="orientation|screenSize|keyboard"
                   android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen">

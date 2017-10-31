@@ -9,10 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import admost.sdk.AdMostInterstitial;
-import admost.sdk.AdMostManager;
-import admost.sdk.AdMostView;
-import admost.sdk.AdMostViewBinder;
+import admost.sdk.*;
 import admost.sdk.base.AdMost;
 import admost.sdk.base.AdMostConfiguration;
 import admost.sdk.base.AdMostLog;
@@ -33,10 +30,9 @@ public class MainActivity extends Activity {
 
         AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(this, Statics.AMR_APP_ID);
         AdMost.getInstance().init(configuration.build());
+        getBanner();
+        getInterstitial();
 
-        //getBanner();
-        //getInterstitial();
-        //getVideo();
 
         findViewById(R.id.showInterstitial).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,9 +83,10 @@ public class MainActivity extends Activity {
         findViewById(R.id.test_suite).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AdMost.getInstance().startTestSuite(new String[] {Statics.BANNER_ZONE, Statics.FULLSCREEN_ZONE, Statics.VIDEO_ZONE});
+                AdMost.getInstance().startTestSuite(new String[]{Statics.BANNER_ZONE, Statics.FULLSCREEN_ZONE, Statics.VIDEO_ZONE, Statics.VIDEO_ZONE_2});
             }
         });
+
     }
 
     private void getBanner() {
@@ -118,7 +115,7 @@ public class MainActivity extends Activity {
             @Override
             public void onReady(String network, View adView) {
                 Log.i("ADMOST","onReady : " + network);
-                LinearLayout viewAd = (LinearLayout) findViewById(R.id.adLayout);
+                LinearLayout viewAd = findViewById(R.id.adLayout);
                 viewAd.removeAllViews();
                 if (adView.getParent() != null && adView.getParent() instanceof ViewGroup) {
                     ((ViewGroup) adView.getParent()).removeAllViews();
@@ -308,4 +305,5 @@ public class MainActivity extends Activity {
             video.destroy();
         }
     }
+
 }
