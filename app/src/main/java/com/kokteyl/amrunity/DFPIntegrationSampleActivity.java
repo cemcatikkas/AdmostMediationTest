@@ -15,7 +15,7 @@ import com.google.android.gms.ads.doubleclick.PublisherInterstitialAd;
 import admost.sdk.AdMostViewBinder;
 import admost.sdk.dfp.AmrDfpCustomEventBanner;
 
-public class DFPIntegration extends Activity {
+public class DFPIntegrationSampleActivity extends Activity {
 
     PublisherInterstitialAd mPublisherInterstitialAd;
 

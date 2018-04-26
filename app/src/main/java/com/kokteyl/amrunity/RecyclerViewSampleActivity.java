@@ -77,12 +77,12 @@ public class RecyclerViewSampleActivity extends Activity {
         public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             if (viewType == 0) {
                 View itemView = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.movie_list_row, parent, false);
+                        .inflate(R.layout.row_recyclerview_movie, parent, false);
 
                 return new MyViewHolder(itemView);
             } else {
                 View itemView = LayoutInflater.from(parent.getContext())
-                        .inflate(R.layout.ad_container_row, parent, false);
+                        .inflate(R.layout.row_recyclerview_ad, parent, false);
 
                 return new AdViewHolder(itemView);
             }

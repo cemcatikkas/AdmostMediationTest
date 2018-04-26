@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.listPage).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ListSampleActivity.class);
+                Intent intent = new Intent(MainActivity.this, ListViewSampleActivity.class);
                 startActivity(intent);
             }
         });
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.dfp_integration).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DFPIntegration.class);
+                Intent intent = new Intent(MainActivity.this, DFPIntegrationSampleActivity.class);
                 startActivity(intent);
             }
         });
@@ -95,13 +95,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        getLayoutInflater().inflate(R.layout.getcontact, (ViewGroup) findViewById(R.id.adLayout));
     }
 
     private void getBanner() {
         // This is just for your own style, left null if you want default layout style
         //AdSettings.addTestDevice("f2ac6d6340d01e4ceaa901c94120f6f1");
-        final AdMostViewBinder binder = new AdMostViewBinder.Builder(R.layout.getcontact)
+        final AdMostViewBinder binder = new AdMostViewBinder.Builder(R.layout.custom_layout_getcontact)
                 .titleId(R.id.appinstall_headline)
                 .textId(R.id.appinstall_body)
                 .callToActionId(R.id.appinstall_call_to_action)

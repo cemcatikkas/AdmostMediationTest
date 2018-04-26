@@ -15,17 +15,16 @@ import java.util.ArrayList;
 
 import admost.sdk.AdMostManager;
 import admost.sdk.AdMostView;
-import admost.sdk.base.AdMost;
 import admost.sdk.listener.AdMostViewListener;
 
-public class ListSampleActivity extends Activity {
+public class ListViewSampleActivity extends Activity {
 
     private Adapter adapter = new Adapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list);
+        setContentView(R.layout.activity_listview);
 
         for (int i = 0; i < 100; i++) {
 
@@ -168,7 +167,7 @@ public class ListSampleActivity extends Activity {
             if (type == ITEM) {
 
                 if (view == null) {
-                    view = getLayoutInflater().inflate(R.layout.view_text, null);
+                    view = getLayoutInflater().inflate(R.layout.row_listview_text, null);
                     ViewHolder holder = new ViewHolder(view);
                     view.setTag(holder);
                 }
@@ -178,7 +177,7 @@ public class ListSampleActivity extends Activity {
             } else if (type == AD) {
 
                 if (view == null) {
-                    view = getLayoutInflater().inflate(R.layout.view_ad, null);
+                    view = getLayoutInflater().inflate(R.layout.row_listview_ad, null);
                     view.setTag(new AdViewHolder(view));
                 }
 

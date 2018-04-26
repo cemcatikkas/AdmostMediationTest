@@ -58,7 +58,7 @@
         </activity>
 
         <activity
-            android:name="com.kokteyl.amrunity.ListSampleActivity"
+            android:name="com.kokteyl.amrunity.ListViewSampleActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|keyboard" />
 
@@ -68,7 +68,7 @@
             android:configChanges="orientation|screenSize|keyboard" />
 
         <activity
-            android:name="com.kokteyl.amrunity.DFPIntegration"
+            android:name="com.kokteyl.amrunity.DFPIntegrationSampleActivity"
             android:screenOrientation="portrait"
             android:configChanges="orientation|screenSize|keyboard" />
 
