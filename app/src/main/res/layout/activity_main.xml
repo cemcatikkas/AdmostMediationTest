@@ -90,6 +90,12 @@
                     android:layout_height="wrap_content"
                     android:text="Start Test Suite"/>
 
+                <Button
+                    android:id="@+id/test_recyclerview"
+                    android:layout_width="160dp"
+                    android:layout_height="wrap_content"
+                    android:text="RecyclerView TEST"/>
+
             </LinearLayout>
         </LinearLayout>
 
