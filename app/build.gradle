@@ -38,8 +38,6 @@ repositories {
         dirs 'libs'
     }
     maven { url 'http://repo.admost.com:8081/artifactory/amr' }
-    maven { url 'http://dl.appnext.com/' }
-    maven { url 'https://s3.amazonaws.com/avocarrot-android-builds/dist/' }
     jcenter ()
     maven { url 'https://s3.amazonaws.com/moat-sdk-builds' }
     maven { url 'https://jitpack.io' }
@@ -59,7 +57,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:27.1.1'
     compile 'com.android.volley:volley:1.0.0'
 
-    compile(name: 'admost-sdk', ext: 'aar')
+    //compile(name: 'admost-sdk', ext: 'aar')
+    compile 'com.admost.sdk:amr:1.6.3'
     compile 'com.google.android.gms:play-services-base:12.0.1'
     compile 'com.admost.sdk:adcolony:3.3.2'
     compile 'com.android.support:support-annotations:+'

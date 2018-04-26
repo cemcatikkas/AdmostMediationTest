@@ -109,7 +109,6 @@
     <orderEntry type="library" name="com.mopub:mopub-sdk-rewardedvideo-4.20.0" level="project" />
     <orderEntry type="library" name="com.android.support:appcompat-v7-27.1.1" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-ads-12.0.1" level="project" />
-    <orderEntry type="library" name="admost-sdk:@aar" level="project" />
     <orderEntry type="library" name="com.google.android.exoplayer:exoplayer-smoothstreaming-r2.4.4" level="project" />
     <orderEntry type="library" name="com.google.android.exoplayer:exoplayer-ui-r2.4.4" level="project" />
     <orderEntry type="library" name="com.android.support:recyclerview-v7-27.1.1" level="project" />
@@ -148,6 +147,7 @@
     <orderEntry type="library" name="com.google.android.gms:play-services-location-12.0.1" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-gass-license-12.0.1" level="project" />
     <orderEntry type="library" name="com.android.installreferrer:installreferrer-1.0" level="project" />
+    <orderEntry type="library" name="com.admost.sdk:amr-1.6.3" level="project" />
     <orderEntry type="library" name="com.mopub:mopub-sdk-interstitial-4.20.0" level="project" />
     <orderEntry type="library" name="com.android.support:support-core-ui-27.1.1" level="project" />
     <orderEntry type="library" name="com.android.support:support-compat-27.1.1" level="project" />
