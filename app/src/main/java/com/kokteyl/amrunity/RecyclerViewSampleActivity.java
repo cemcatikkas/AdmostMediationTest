@@ -276,16 +276,19 @@ public class RecyclerViewSampleActivity extends Activity {
                 .build();
 
         AdMostView ad = new AdMostView(this, Statics.BANNER_ZONE, AdMostManager.getInstance().AD_BANNER, new AdMostViewListener() {
-            @Override
-            public void onLoad(String network, int position) {
-            }
+
 
             @Override
-            public void onReady(String s, View view) {
+            public void onReady(String s, int ecpm, View view) {
             }
 
             @Override
             public void onFail(int i) {
+            }
+
+            @Override
+            public void onClick(String s) {
+
             }
         }, binder);
 

@@ -32,17 +32,17 @@ public class ListViewSampleActivity extends Activity {
 
                 AdMostView ad = new AdMostView(this, Statics.BANNER_ZONE, AdMostManager.getInstance().AD_BANNER, new AdMostViewListener() {
                     @Override
-                    public void onLoad(String network, int position) {
-                        adapter.notifyDataSetChanged();
-                    }
-
-                    @Override
-                    public void onReady(String s, View view) {
+                    public void onReady(String network, int ecpm, View view) {
 
                     }
 
                     @Override
                     public void onFail(int i) {
+
+                    }
+
+                    @Override
+                    public void onClick(String s) {
 
                     }
                 }, null);
@@ -181,7 +181,7 @@ public class ListViewSampleActivity extends Activity {
                     view.setTag(new AdViewHolder(view));
                 }
 
-                ((AdViewHolder) view.getTag()).set(((AdMostView) item).getView(position));
+                ((AdViewHolder) view.getTag()).set(((AdMostView) item).getView());
 
             }
 
